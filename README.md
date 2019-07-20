@@ -5,9 +5,9 @@
 * They educate adults and children about coral reefs, why they are important and the threats that the reefs face.
 * They use the process of coral gardening to restore reefs by planting healthy coral fragments back onto the reef, primarily on the reef near Mo'orea, which has been heavily impacted.
 
-Coral adoptions are a key source of donations for the organization. Each coral adoption is unique and comes with a certificate that provides a picture of the coral, its name and its GPS coordinates.
-
 ## The Problem
+
+Coral adoptions are a key source of donations for the organization. Each coral adoption is unique and comes with a certificate that provides a picture of the coral, its name and its GPS coordinates.
 
 Currently, they produce these certificates in Photoshop with staff spending a significant amount of time on them. The time spent on these, while important, takes away from time they could be spending on work directly related to their mission.
 
