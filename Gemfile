@@ -39,6 +39,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Asynchronus job processor.
 gem 'sidekiq'
 
+gem 'rubocop-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
