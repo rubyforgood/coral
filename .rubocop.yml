@@ -4,9 +4,9 @@ require: rubocop-rails
 AllCops:
   TargetRubyVersion: 2.6
   Exclude:
-    - 'bin/**/*'
-    - 'node_modules/**/*'
-    - 'vendor/**/*'
+    - 'rails/bin/**/*'
+    - 'rails/node_modules/**/*'
+    - 'rails/vendor/**/*'
 
 # URISchemes: http, https
 Metrics/LineLength:
@@ -14,12 +14,12 @@ Metrics/LineLength:
 
 Style/Documentation:
   Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'app/helpers/application_helper.rb'
-    - 'app/mailers/application_mailer.rb'
-    - 'app/models/application_record.rb'
-    - 'config/application.rb'
+    - 'rails/spec/**/*'
+    - 'rails/test/**/*'
+    - 'rails/app/helpers/application_helper.rb'
+    - 'rails/app/mailers/application_mailer.rb'
+    - 'rails/app/models/application_record.rb'
+    - 'rails/config/application.rb'
 
 Style/FrozenStringLiteralComment:
   Enabled: false
