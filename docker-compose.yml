@@ -6,11 +6,11 @@ services:
       - web
     image: 'nginx:latest'
     ports: 
-      - ${NGINX_PORT:-9000}:80
+      - ${NGINX_PORT:-8080}:80
     volumes:
       - ./nginx:/etc/nginx
     environment:
-      - NGINX_PORT=${NGINX_PORT:-9000}
+      - NGINX_PORT=${NGINX_PORT:-8080}
 
   web:
     depends_on:
@@ -26,6 +26,17 @@ services:
     env_file:
       - .env/development/database
       - .env/development/web
+      - .env/development/storage
+
+  storage:
+    image: minio/minio
+    ports:
+      - "9000:9000"
+    volumes: 
+      - imagedata:/srv/data
+    command: server /srv/data
+    env_file:
+      - .env/development/storage
 
   webpacker_dev:
     build: rails
@@ -61,3 +72,4 @@ services:
 volumes:
   coral_data:
   gem_cache:
+  imagedata:
