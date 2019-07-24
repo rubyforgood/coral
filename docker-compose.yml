@@ -7,17 +7,19 @@ services:
       - "3000:3000"
     volumes:
       - ./rails:/srv/coral
+      - gem_cache:/var/lib/ruby/gems
     env_file:
       - .env/development/database
       - .env/development/web
 
   webpacker_dev:
-    build: .
+    build: rails
     command: ./bin/webpack-dev-server
     ports:
       - "3035:3035"
     volumes:
       - ./rails:/srv/coral
+      - gem_cache:/var/lib/ruby/gems
     env_file:
       - .env/development/database
       - .env/development/web
@@ -35,8 +37,6 @@ services:
     volumes:
       - coral_data:/var/lib/postgresql/data
 
-
-
 volumes:
   coral_data:
-
+  gem_cache:
