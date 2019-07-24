@@ -31,3 +31,23 @@ Some things that will increase the chance that your pull request is accepted:
 * Use Rails idioms and helpers
 * Include tests that fail without your code, and pass with it
 * Update the documentation, the surrounding one, examples elsewhere, guides, whatever is affected by your contribution
+
+## Getting started
+
+To setup the app, you'll want to do the following:
+
+1. Clone the repo:
+  - SSH: `git clone git@github.com:rubyforgood/coral.git`
+  - HTTPS `git clone https://github.com/rubyforgood/coral.git`
+2. Change to the app directory: `cd coral`
+3. Be sure Postgres is [installed](https://www.postgresql.org/download/) (version 9.1+) and running, or that you've started it locally [in a container](https://hub.docker.com/_/postgres)
+4. If you're using `rvm` or `rbenv` (you should), ensure you've got the right ruby version selected:
+  - RVM: `rvm current` to check version, `rvm use` to change version
+  - rbenv: `rbenv version` to check, rbenv should automatically use what's in `.ruby-version`
+5. Install the app bundle: `bundle install`
+6. [Install yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable) if you don't have it already.
+7. Install the javascript dependencies: `yarn install --check-files`
+8. Setup the database: `bundle exec rake db:setup`
+9. Run the tests: `bundle exec rails spec`
+10. Run the app locally: `bundle exec rails server`
+11. View the running app in the browser at [http://localhost:3000](http://localhost:3000)
