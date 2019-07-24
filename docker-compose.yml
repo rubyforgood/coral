@@ -11,6 +11,20 @@ services:
       - .env/development/database
       - .env/development/web
 
+  webpacker_dev:
+    build: .
+    command: ./bin/webpack-dev-server
+    ports:
+      - "3035:3035"
+    volumes:
+      - ./rails:/srv/coral
+    env_file:
+      - .env/development/database
+      - .env/development/web
+    environment:
+      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+
+
   redis:
     image: redis
 
