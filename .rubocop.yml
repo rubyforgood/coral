@@ -1,0 +1,28 @@
+---
+require: rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 2.6
+  Exclude:
+    - 'rails/bin/**/*'
+    - 'rails/node_modules/**/*'
+    - 'rails/vendor/**/*'
+
+# URISchemes: http, https
+Metrics/LineLength:
+  Max: 130
+
+Style/Documentation:
+  Exclude:
+    - 'rails/spec/**/*'
+    - 'rails/test/**/*'
+    - 'rails/app/helpers/application_helper.rb'
+    - 'rails/app/mailers/application_mailer.rb'
+    - 'rails/app/models/application_record.rb'
+    - 'rails/config/application.rb'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
