@@ -1,6 +1,17 @@
 version: '3'
 
 services:
+  nginx:
+    depends_on:
+      - web
+    image: 'nginx:latest'
+    ports: 
+      - ${NGINX_PORT:-9000}:80
+    volumes:
+      - ./nginx:/etc/nginx
+    environment:
+      - NGINX_PORT=${NGINX_PORT:-9000}
+
   web:
     build: rails
     ports:
