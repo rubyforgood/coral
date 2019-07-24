@@ -5,6 +5,8 @@ RUN set -ex && \
     apk upgrade && \
     rm -rf /var/cache/apk
 
+ENV BUNDLE_PATH=/var/lib/ruby/gems
+
 RUN gem install bundler
 
 WORKDIR /srv/coral
