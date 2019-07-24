@@ -62,7 +62,8 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.before(:each, type: :system, js: true) do
-    driven_by :chrome_in_container
+    # driven_by :chrome_in_container
+    driven_by :chrome_in_container_headless
     Capybara.server_host = "0.0.0.0"
     Capybara.server_port = 4000
     Capybara.app_host = "http://web:4000"
