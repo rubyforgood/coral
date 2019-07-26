@@ -196,6 +196,8 @@ GEM
     selenium-webdriver (3.142.3)
       childprocess (>= 0.5, < 2.0)
       rubyzip (~> 1.2, >= 1.2.2)
+    serviceworker-rails (0.6.0)
+      railties (>= 3.1)
     sidekiq (5.2.7)
       connection_pool (~> 2.2, >= 2.2.2)
       rack (>= 1.5.0)
@@ -258,6 +260,7 @@ DEPENDENCIES
   rubocop-rails
   sassc-rails
   selenium-webdriver
+  serviceworker-rails (~> 0.6)
   sidekiq
   spring
   spring-watcher-listen (~> 2.0.0)
