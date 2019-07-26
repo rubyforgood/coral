@@ -7,3 +7,9 @@ services:
       driver: none
     ports:
       - "5900:5900"
+    networks:
+      - coral_net
+
+networks:
+  coral_net:
+    external: true

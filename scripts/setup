@@ -52,5 +52,28 @@ if [ ${BUILD_RESULT} != 0 ]; then
 fi
 echo "Successfully built containers"
 
+# Setup database
+echo "Setting up database..."
+docker-compose -f ${SCRIPT_DIR}/../docker-compose.yml run web bundle exec bin/rails db:setup
+DB_SETUP_RESULT=$?
+if [ ${DB_SETUP_RESULT} != 0 ]; then
+  echo "Error setting up database"
+  exit ${DB_SETUP_RESULT}
+fi
+echo "Migrating up database..."
+docker-compose.yml run web bundle exec bin/rails db:migrate
+DB_MIGRATE_RESULT=$?
+if [ ${DB_MIGRATE_RESULT} != 0 ]; then
+  echo "Error migrating up database"
+  exit ${DB_MIGRATE_RESULT}
+fi
+echo "Seeding database..."
+docker-compose.yml run web bundle exec bin/rails db:seed
+DB_SEED_RESULT=$?
+if [ ${DB_SEED_RESULT} != 0 ]; then
+  echo "Error migrating up database"
+  exit ${DB_SEED_RESULT}
+fi
+
 echo "Successfully setup application"
 exit 0

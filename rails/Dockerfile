@@ -11,7 +11,7 @@ RUN gem install bundler
 
 WORKDIR /srv/coral
 
-COPY Gemfile* /srv/coral/
+COPY Gemfile* yarn* package*.json /srv/coral/
 
 RUN bundle install
 RUN yarn install --check-files

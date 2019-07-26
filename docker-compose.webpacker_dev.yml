@@ -10,10 +10,16 @@ services:
       - ./rails:/srv/coral
       - gem_cache:/var/lib/ruby/gems
     env_file:
-      - .env/development/database
-      - .env/development/web
+      - .docker-env/development/database
+      - .docker-env/development/web
     environment:
       - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+    networks:
+      - coral_net
 
 volumes:
   gem_cache:
+
+networks:
+  coral_net:
+    external: true
