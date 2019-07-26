@@ -38,27 +38,6 @@ services:
     env_file:
       - .env/development/storage
 
-  webpacker_dev:
-    build: rails
-    command: ./bin/webpack-dev-server
-    ports:
-      - "3035:3035"
-    volumes:
-      - ./rails:/srv/coral
-      - gem_cache:/var/lib/ruby/gems
-    env_file:
-      - .env/development/database
-      - .env/development/web
-    environment:
-      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
-
-  selenium_chrome:
-    image: selenium/standalone-chrome-debug
-    logging:
-      driver: none
-    ports:
-      - "5900:5900"
-
   redis:
     image: redis
 
