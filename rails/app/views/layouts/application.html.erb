@@ -10,9 +10,32 @@
 
     <%= javascript_pack_tag 'application' %>
     <%= stylesheet_pack_tag 'application' %>
+
+    <title><%= @title %></title>
   </head>
 
   <body>
-    <%= yield %>
+    
+    <div class="container-fluid"> <%# Start navbar %>
+      <header>
+        <nav class="navbar navbar-expand-md sticky-top">
+          <a class="nav-item nav-link home" href="/">Coral Gardeners</a>
+          <a class="nav-item nav-link" href="/">Home</a>
+          <a class="nav-item nav-link" href="<%= nursery_tables_path %>">Nursery Tables</a>
+          <a class="nav-item nav-link" href="<%= zones_path %>">Zones</a>
+        </nav>
+      </header>
+    </div> <%# End navbar %>
+
+    <div class="container-fluid wrapper"> <%# Start body %>
+      <%= yield %>
+    </div> <%# End body %>
+
+    <div class="container-fluid"> <%# Start footer %>
+      <footer class="branding">
+        <small>&copy; 2019 <strong class="req">Coral Gardeners</strong></small>
+      </footer>
+    </div> <%# End footer %>
+
   </body>
 </html>
