@@ -9,6 +9,7 @@
 
 # Ignore .dotenv config
 .env
+.docker-env
 
 # Ignore Rubymine
 .idea

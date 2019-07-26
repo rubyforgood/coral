@@ -11,6 +11,8 @@ services:
       - ./nginx:/etc/nginx
     environment:
       - NGINX_PORT=${NGINX_PORT:-8080}
+    networks:
+      - coral_net
 
   web:
     depends_on:
@@ -24,9 +26,11 @@ services:
       - ./rails:/srv/coral
       - gem_cache:/var/lib/ruby/gems
     env_file:
-      - .env/development/database
-      - .env/development/web
-      - .env/development/storage
+      - .docker-env/development/database
+      - .docker-env/development/web
+      - .docker-env/development/storage
+    networks:
+      - coral_net
 
   storage:
     image: minio/minio
@@ -36,7 +40,9 @@ services:
       - imagedata:/srv/data
     command: server /srv/data
     env_file:
-      - .env/development/storage
+      - .docker-env/development/storage
+    networks:
+      - coral_net
 
   webpacker_dev:
     build: rails
@@ -47,10 +53,12 @@ services:
       - ./rails:/srv/coral
       - gem_cache:/var/lib/ruby/gems
     env_file:
-      - .env/development/database
-      - .env/development/web
+      - .docker-env/development/database
+      - .docker-env/development/web
     environment:
       - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+    networks:
+      - coral_net
 
   selenium_chrome:
     image: selenium/standalone-chrome-debug
@@ -58,18 +66,27 @@ services:
       driver: none
     ports:
       - "5900:5900"
+    networks:
+      - coral_net
 
   redis:
     image: redis
+    networks:
+      - coral_net
 
   database:
     image: postgres
     env_file:
-      - .env/development/database
+      - .docker-env/development/database
     volumes:
       - coral_data:/var/lib/postgresql/data
+    networks:
+      - coral_net
 
 volumes:
   coral_data:
   gem_cache:
   imagedata:
+
+networks:
+  coral_net:
