@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Capacity:</strong>
+  <%= @nursery_table.capacity %>
+</p>
+
+<p>
+  <strong>Zone:</strong>
+  <%= @nursery_table.zone %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @nursery_table.name %>
+</p>
+
+<%= link_to 'Edit', edit_nursery_table_path(@nursery_table) %> |
+<%= link_to 'Back', nursery_tables_path %>

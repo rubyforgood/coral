@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Zones</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @zones.each do |zone| %>
+      <tr>
+        <td><%= zone.name %></td>
+        <td><%= link_to 'Show', zone %></td>
+        <td><%= link_to 'Edit', edit_zone_path(zone) %></td>
+        <td><%= link_to 'Destroy', zone, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Zone', new_zone_path %>
