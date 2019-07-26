@@ -14,11 +14,7 @@
  *= require_self
  */
 
- /*
- * Base app colors
- * white #ffffff
- * 
- */
+ @import 'styling_variables', 'scaffolds', 'nursery_tables', 'zones';
 
  @media screen {
 
@@ -42,11 +38,11 @@
   /* --- Base-Level Styling --- */
 
   html, body {
-    font-size: 62.5%;
     height: 100%;
     width: 100%;
+    font-size: 62.5%;
   }
-
+  
   body {
     font-size: 1.6rem;
   }
