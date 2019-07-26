@@ -1,0 +1,32 @@
+<%= form_with(model: nursery_table, local: true) do |form| %>
+  <% if nursery_table.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(nursery_table.errors.count, "error") %> prohibited this nursery_table from being saved:</h2>
+
+      <ul>
+      <% nursery_table.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :capacity %>
+    <%= form.number_field :capacity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zone_id %>
+    <%= form.text_field :zone_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

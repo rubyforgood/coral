@@ -1,0 +1,2 @@
+module NurseryTablesHelper
+end
