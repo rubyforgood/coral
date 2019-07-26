@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Coral</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -11,7 +13,7 @@
     <%= javascript_pack_tag 'application' %>
     <%= stylesheet_pack_tag 'application' %>
 
-    <title><%= @title %></title>
+    <title>Coral Gardeners</title>
   </head>
 
   <body>
@@ -23,6 +25,8 @@
           <a class="nav-item nav-link" href="/">Home</a>
           <a class="nav-item nav-link" href="<%= nursery_tables_path %>">Nursery Tables</a>
           <a class="nav-item nav-link" href="<%= zones_path %>">Zones</a>
+          <a class="nav-item nav-link" href="<%= restoration_activity_log_entries_path %>">Restoration Activity Log</a>
+          <a class="nav-item nav-link" href="<%= users_path %>">Users</a>
         </nav>
       </header>
     </div> <%# End navbar %>
@@ -37,7 +41,7 @@
 
     <div class="container-fluid"> <%# Start footer %>
       <footer class="branding">
-        <small>&copy; 2019 <strong class="req">Ruby for Good</strong></small>
+        <small>&copy; 2019 <strong>Ruby for Good</strong></small>
       </footer>
     </div> <%# End footer %>
 
