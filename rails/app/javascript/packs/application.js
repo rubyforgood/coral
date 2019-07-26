@@ -18,3 +18,7 @@
 console.log('Hello World from Webpacker')
 
 import "controllers"
+
+import { register as registerServiceWorker } from "service_worker"
+
+registerServiceWorker()
