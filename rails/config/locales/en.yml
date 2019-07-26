@@ -31,3 +31,10 @@
 
 en:
   hello: "Hello world"
+  dives:
+    new:
+      title: "Start dive"
+      checklist_preface: "Before you start your dive, double-check the following:"
+      submit: "Start dive"
+    show:
+      title: "On dive #%{dive_id}"

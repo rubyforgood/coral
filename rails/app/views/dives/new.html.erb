@@ -1,0 +1,8 @@
+<h1><%=t '.title' %></h1>
+
+<p><%=t '.checklist_preface' %></p>
+
+<%= simple_form_for dive do |f| %>
+  <%= f.input :i_have_been_responsible, as: :boolean %>
+  <%= f.submit t('.submit') %>
+<% end %>
