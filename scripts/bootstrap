@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# Get script directory
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "${SOURCE}" ]; do # resolve ${SOURCE} until the file is no longer a symlink
+  DIR="$( cd -P "$( dirname "${SOURCE}" )" >/dev/null 2>&1 && pwd )"
+  SOURCE="$(readlink "${SOURCE}")"
+  [[ ${SOURCE} != /* ]] && SOURCE="${DIR}/${SOURCE}" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+SCRIPT_DIR="$( cd -P "$( dirname "${SOURCE}" )" >/dev/null 2>&1 && pwd )"
+
+# Check type of bash
+UNAME_OUT="$(uname -s)"
+case "${UNAME_OUT}" in
+    Linux*)     RUNTIME="Linux";;
+    Darwin*)    RUNTIME="macOS";;
+    CYGWIN*)    RUNTIME="Cygwin";;
+    MINGW*)     RUNTIME="MinGw";;
+    *)          RUNTIME="UNKNOWN:${UNAME_OUT}"
+esac
+if [[ ${RUNTIME:0:8} = "UNKNOWN:" ]]; then
+  echo "Could not detect system runtime. Exiting."
+  exit 1
+fi
+echo "Detected system runtime: ${RUNTIME}"
+
+# Check for docker installation
+if [ ! -n $(which docker) ]; then
+  echo "Docker installation not found. Please install, and then run this script again."
+  echo "To install, see the docker installation documentation at:"
+  if [[ ${RUNTIME} = "Cygwin" ]]; then
+    echo "https://docs.docker.com/docker-for-windows/install/"
+  elif [[ ${RUNTIME} = "MinGw" ]]; then
+    echo "https://docs.docker.com/docker-for-windows/install/"
+  elif [[ ${RUNTIME} = "Mac" ]]; then
+    echo "https://docs.docker.com/docker-for-mac/install/"
+  else
+    echo "https://docs.docker.com/install/#server"
+  fi
+  exit 1
+else
+  echo "Found docker installation at: $(which docker)"
+fi
+
+# Check for docker-compose installation
+if [ ! -n $(which docker-compose) ]; then
+  echo "Docker Compose not found. On Linux systems, you may need to install compose separately."
+  echo "See install documentation at:"
+  echo "https://docs.docker.com/compose/install/"
+  exit 1
+else
+  echo "Found docker compose installation at: $(which docker-compose)"
+fi
+
+echo "All Docker dependencies found. Ready to setup application components."
+exit 0
