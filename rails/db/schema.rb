@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_26_154502) do
+ActiveRecord::Schema.define(version: 2019_07_26_200834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 2019_07_26_154502) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["zone_id"], name: "index_nursery_tables_on_zone_id"
+  end
+
+  create_table "restoration_activity_log_entries", force: :cascade do |t|
+    t.boolean "cleaned"
+    t.integer "percent_filled"
+    t.integer "broken_corals"
+    t.integer "dead_corals"
+    t.integer "dive_id"
+    t.integer "nursery_table_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

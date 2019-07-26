@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :restoration_activity_log_entries
   root to: 'home#index'
   devise_for :users  
   resources :nursery_tables
