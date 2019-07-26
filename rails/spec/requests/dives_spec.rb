@@ -57,4 +57,29 @@ RSpec.describe "Dives", type: :request do
       end
     end
   end
+
+  describe "POST finish" do
+    let!(:dive) { FactoryBot.create(:dive) } 
+
+    subject do
+      -> {
+        post "/dives/#{dive.id}/finish"
+      }
+    end
+
+    it "redirects to the dive page" do
+      subject.call
+      expect(response).to be_redirect
+
+      follow_redirect!
+      expect(response).to be_successful
+    end
+
+    it "marks the dive as finished" do
+      subject.call
+      
+      dive.reload
+      expect(dive.finished_at).not_to be_nil
+    end
+  end
 end

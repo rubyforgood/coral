@@ -1,1 +1,7 @@
 <h1><%=t '.title', dive_id: dive.id %></h1>
+
+<%- if dive.finished? %>
+  <%=t '.finished_at_log_message', finished_at: dive.finished_at.to_formatted_s(:db) %>
+<%- else %>
+  <%= button_to t('.finish_button'), [:finish, dive], method: :post %>
+<%- end %>

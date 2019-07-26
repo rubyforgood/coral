@@ -16,4 +16,30 @@ RSpec.describe Dive do
       expect(subject).not_to be_valid
     end
   end
+
+  describe "finishing the dive" do
+    it "sets the finish time" do
+      subject = FactoryBot.create(:dive)
+
+      subject.finish
+
+      expect(subject.finished_at).to be_present
+    end
+  end
+
+  describe "checking if a dive is finished" do
+    it "is true if finished_at is set" do
+      subject = FactoryBot.build(:dive)
+      subject.finished_at = Time.now
+
+      expect(subject).to be_finished
+    end
+
+    it "is false if finished_at is notset" do
+      subject = FactoryBot.build(:dive)
+      subject.finished_at = nil
+
+      expect(subject).not_to be_finished
+    end
+  end
 end

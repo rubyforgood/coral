@@ -18,6 +18,11 @@ class DivesController < ApplicationController
     end
   end
 
+  def finish
+    dive.finish
+    redirect_to :dive
+  end
+
   private def dive
     @dive ||= Dive.find(params[:id])
   end
