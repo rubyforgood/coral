@@ -1,4 +1,4 @@
-from ruby:2.6.3-alpine
+FROM ruby:2.6.3-alpine
 
 RUN set -ex && \
     apk add --update build-base yarn nodejs postgresql-dev tzdata && \
