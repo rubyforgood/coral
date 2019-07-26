@@ -1,0 +1,1 @@
+json.partial! "restoration_activity_log_entries/restoration_activity_log_entry", restoration_activity_log_entry: @restoration_activity_log_entry
