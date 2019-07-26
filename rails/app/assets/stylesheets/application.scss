@@ -1,0 +1,75 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ /*
+ * Base app colors
+ * white #ffffff
+ * 
+ */
+
+ @media screen {
+
+  /* --- Reset Styles --- */
+  * {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* --- Custom Megstrap Styling --- */
+
+  .container-fluid {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  /* --- Base-Level Styling --- */
+
+  html, body {
+    font-size: 62.5%;
+    height: 100%;
+    width: 100%;
+  }
+
+  body {
+    font-size: 1.6rem;
+  }
+
+  .wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background: rgba(249, 251, 242, 1);
+    -moz-box-shadow: 0 0 2rem rgba(41, 30, 53, 0.5);
+    -webkit-box-shadow: 0 0 2rem rgba(41, 30, 53, 0.5);
+    box-shadow: 0 0 2rem rgba(41, 30, 53, 0.5);
+    margin: 1.6rem auto;
+    padding: 2.25%; /* 18px / 800px */
+    width: 85%;
+  }
+
+  /* --- Footer Styling --- */
+
+  footer {
+    display: flex;
+    flex-shrink: 0;
+  }
+
+ }
