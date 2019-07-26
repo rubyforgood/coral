@@ -1,0 +1,77 @@
+#!/bin/bash
+
+# Get script directory
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "${SOURCE}" ]; do # resolve ${SOURCE} until the file is no longer a symlink
+  DIR="$( cd -P "$( dirname "${SOURCE}" )" >/dev/null 2>&1 && pwd )"
+  SOURCE="$(readlink "${SOURCE}")"
+  [[ ${SOURCE} != /* ]] && SOURCE="${DIR}/${SOURCE}" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+SCRIPT_DIR="$( cd -P "$( dirname "${SOURCE}" )" >/dev/null 2>&1 && pwd )"
+
+# Print usage when called
+usage () {
+  echo "USAGE:"
+  echo "  $0 [+webpacker_dev|+selenium_chrome|+dev]"
+  echo "PARAMETERS:"
+  echo "  +webpacker_dev   - include the webpacker_dev container when running"
+  echo "  +selenium_chrome - include the selenium_chrome container when running"
+  echo "  +dev             - include all dev dependencies when running (includes both webpacker_dev and selenium_chrome)"
+}
+
+# Process CLI arguments
+PARAM1=$1
+PARAM2=$2
+if [[ ${PARAM1} = "help" ]]; then
+  usage
+  exit 0
+fi
+
+# Set flags
+INCLUDE_WEBPACKER_DEV=0
+INCLUDE_SELENIUM_CHROME=0
+EXCLUDE_ALL_DEV=1
+if [[ ${PARAM1} = "+webpacker_dev" || ${PARAM2} = "+webpacker_dev" ]]; then
+  INCLUDE_WEBPACKER_DEV=1
+  EXCLUDE_ALL_DEV=0
+fi
+if [[ ${PARAM1} = "+selenium_chrome" || ${PARAM2} = "+selenium_chrome" ]]; then
+  INCLUDE_SELENIUM_CHROME=1
+  EXCLUDE_ALL_DEV=0
+fi
+if [[ ${PARAM1} = "+dev" ]]; then
+  INCLUDE_WEBPACKER_DEV=1
+  INCLUDE_SELENIUM_CHROME=1
+  EXCLUDE_ALL_DEV=0
+fi
+
+# Check dependencies/ensure setup
+${SCRIPT_DIR}/setup
+SETUP_RESULT=$?
+echo "${SETUP_RESULT}"
+if [ ${SETUP_RESULT} != 0 ]; then
+  echo "Error setting up app"
+  exit ${SETUP_RESULT}
+fi
+
+# Construct command
+CMD="docker-compose -f ${SCRIPT_DIR}/../docker-compose.yml"
+if [ ${INCLUDE_WEBPACKER_DEV} = 1 ]; then
+  echo "Including webpacker_dev container..."
+  CMD="${CMD} -f ${SCRIPT_DIR}/../docker-compose.webpacker_dev.yml"
+fi
+if [ ${INCLUDE_SELENIUM_CHROME} = 1 ]; then
+  echo "Including selenium_chrome container..."
+  CMD="${CMD} -f ${SCRIPT_DIR}/../docker-compose.selenium_chrome.yml"
+fi
+if [ ${EXCLUDE_ALL_DEV} = 1 ]; then
+  echo "Excluding all dev dependencies..."
+fi
+CMD="${CMD} up -d"
+
+${CMD}
+START_RESULT=$?
+if [ ${START_RESULT} != 0 ]; then
+  echo "Error starting application"
+  exit ${START_RESULT}
+fi
