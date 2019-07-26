@@ -28,12 +28,16 @@
     </div> <%# End navbar %>
 
     <div class="container-fluid wrapper"> <%# Start body %>
+      <%# TODO: Bootstrap this %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
       <%= yield %>
     </div> <%# End body %>
 
     <div class="container-fluid"> <%# Start footer %>
       <footer class="branding">
-        <small>&copy; 2019 <strong class="req">Coral Gardeners</strong></small>
+        <small>&copy; 2019 <strong class="req">Ruby for Good</strong></small>
       </footer>
     </div> <%# End footer %>
 
