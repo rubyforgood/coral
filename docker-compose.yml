@@ -24,11 +24,12 @@ services:
       - "4000:4000"
     volumes:
       - ./rails:/srv/coral
-      - gem_cache:/var/lib/ruby/gems
     env_file:
-      - .docker-env/development/database
-      - .docker-env/development/web
-      - .docker-env/development/storage
+      - ./.docker-env/development/database
+      - ./.docker-env/development/web
+      - ./.docker-env/development/storage
+    environment:
+      - DATABASE_HOST=database
     networks:
       - coral_net
 
@@ -40,7 +41,7 @@ services:
       - imagedata:/srv/data
     command: server /srv/data
     env_file:
-      - .docker-env/development/storage
+      - ./.docker-env/development/storage
     networks:
       - coral_net
 
@@ -51,12 +52,12 @@ services:
       - "3035:3035"
     volumes:
       - ./rails:/srv/coral
-      - gem_cache:/var/lib/ruby/gems
     env_file:
-      - .docker-env/development/database
-      - .docker-env/development/web
+      - ./.docker-env/development/database
+      - ./.docker-env/development/web
     environment:
       - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+      - DATABASE_HOST=database
     networks:
       - coral_net
 
@@ -77,7 +78,7 @@ services:
   database:
     image: postgres
     env_file:
-      - .docker-env/development/database
+      - ./.docker-env/development/database
     volumes:
       - coral_data:/var/lib/postgresql/data
     networks:
@@ -85,7 +86,6 @@ services:
 
 volumes:
   coral_data:
-  gem_cache:
   imagedata:
 
 networks:
