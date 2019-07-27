@@ -52,6 +52,12 @@ function onFetch(event) {
           console.log('the caching request worked!');
           return response;
         }
+
+        if (writeRequest(event.request) && safeToDelay(event.request)) {
+          console.log('storing the request to be made later')
+        }
+
+
         // if not found in cache, return default offline content for navigate requests
         console.log('try to return the default offline content');
         if (event.request.mode === 'navigate' ||
@@ -82,3 +88,17 @@ self.addEventListener('install', onInstall);
 self.addEventListener('activate', onActivate);
 self.addEventListener('fetch', onFetch);
 self.addEventListener('message', onMessage);
+
+function writeRequest(request) {
+  return request.method === 'POST' ||
+    request.method === 'PUT' ||
+    request.method === 'PATCH' ||
+    request.method === 'DELETE';
+}
+
+function safeToDelay(request) {
+  // eventually, I should match only the routes that are append-only, like
+  // log entry routes.
+  // for now we just return true, so I can test this in the absence of those routes.
+  return true;
+}
