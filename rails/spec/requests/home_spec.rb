@@ -6,5 +6,10 @@ RSpec.describe "home", type: :request do
     get "/"
 
     expect(response).to be_successful
+
+    sign_out @user
+    get "/"
+    
+    expect(response).to redirect_to("/users/sign_in")
   end
 end
