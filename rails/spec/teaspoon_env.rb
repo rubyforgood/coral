@@ -108,10 +108,23 @@ Teaspoon.configure do |config|
   # Selenium Webdriver: https://github.com/modeset/teaspoon/wiki/Using-Selenium-WebDriver
   # BrowserStack Webdriver: https://github.com/modeset/teaspoon/wiki/Using-BrowserStack-WebDriver
   # Capybara Webkit: https://github.com/modeset/teaspoon/wiki/Using-Capybara-Webkit
+  selenium_opts = Selenium::WebDriver::Chrome::Options.new
+  selenium_opts.add_argument('--headless')
+  selenium_opts.add_argument('--disable-gpu')
+  selenium_opts.add_argument('--disable-extensions')
   config.driver_options = {
     client_driver: :chrome,
+    client_driver_opts: {
+      options: {
+        args: [
+          '--headless',
+          '--disable-gpu',
+          '--disable-extensions'
+        ]
+      }
+    },
     selenium_options: {
-      options: Selenium::WebDriver::Chrome::Options.new(args: ['headless', 'disable-gpu'])
+      options: selenium_opts
     }
   }
 
