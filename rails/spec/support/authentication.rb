@@ -1,6 +1,6 @@
 shared_context "logged in" do 
+    let(:current_user){FactoryBot.create(:user)}
     before do 
-        user = FactoryBot.create(:user)
-        sign_in(user)
+        sign_in(current_user)
     end
 end
