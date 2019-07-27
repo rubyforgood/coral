@@ -54,9 +54,9 @@ function onFetch(event) {
         }
 
         if (writeRequest(event.request) && safeToDelay(event.request)) {
-          console.log('storing the request to be made later')
+          console.log('storing the request to be made later');
+          return caches.match(delayResponseFor(event.request));
         }
-
 
         // if not found in cache, return default offline content for navigate requests
         console.log('try to return the default offline content');
@@ -98,4 +98,8 @@ function writeRequest(request) {
 
 function safeToDelay(request) {
   return request.url.match(/\/restoration_activity_log_entries\/?$/);
+}
+
+function delayResponseFor(request) {
+  return '/restoration_activity_log_entries/new'
 }
