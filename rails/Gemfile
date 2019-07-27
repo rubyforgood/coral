@@ -59,10 +59,6 @@ group :development do
   gem "spring-watcher-listen", "~> 2.0.0"
 end
 
-group :development, :test do
-  gem "factory_bot_rails"
-end
-
 group :test do
   gem "capybara"
   gem "rspec-rails"
@@ -74,5 +70,11 @@ gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 gem "devise", "~> 4.6"
 
+# Use bootstrap gem for styling
+gem 'bootstrap', '~> 4.3.1'
+# Use sprockets to support bootstrap
+gem 'sprockets-rails', '>= 2.3.2'
+# Use jQuery to support bootstrap
+gem 'jquery-rails'
 # get service-workers to play nicely with rails
 gem 'serviceworker-rails', '~> 0.6'
