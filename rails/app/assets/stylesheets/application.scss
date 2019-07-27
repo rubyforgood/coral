@@ -73,20 +73,16 @@ $highlight-text: #C06D19;
     background-color: $main-color;
     color: $main-text;
     font-family: $main-font;
-    font-size: 1.6rem;
   }
 
   .wrapper {
-    min-height: 90%;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    background: rgba(249, 251, 242, 1);
-    -moz-box-shadow: 0 0 2rem rgba(41, 30, 53, 0.5);
-    -webkit-box-shadow: 0 0 2rem rgba(41, 30, 53, 0.5);
-    box-shadow: 0 0 2rem rgba(41, 30, 53, 0.5);
-    margin: 2rem auto;
-    padding: 1% 4%; /* 18px / 800px */
+    background: $light-shade;
+    -moz-box-shadow: 0 0 2rem $dark-shade;
+    -webkit-box-shadow: 0 0 2rem $dark-shade;
+    box-shadow: 0 0 2rem $dark-shade;
   }
 
   p {
