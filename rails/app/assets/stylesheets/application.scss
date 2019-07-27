@@ -120,10 +120,17 @@ $highlight-text: #C06D19;
   }
 
   // Footer Styling //
+  // Footer //
 
   footer {
     display: flex;
     flex-shrink: 0;
   }
 
+  small {
+    font-size: 60%;
+    margin-bottom: 1rem;
+  }
+
 }
+
