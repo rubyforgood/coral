@@ -22,10 +22,14 @@ import "controllers"
 document.addEventListener('serviceWorkerRegistered', () => {
   console.log("webpack heard the sw register");
 
-  if (!navigator.serviceWorker.controller) {
-    console.log('error: no sw controller');
-    return;
+  if (navigator.serviceWorker.controller) {
+    fetchForms()
+  } else {
+    navigator.serviceWorker.addEventListener('controllerchange', fetchForms);
   }
+});
 
-  navigator.serviceWorker.controller.postMessage("I worked!!!!");
-})
+function fetchForms() {
+  console.log('fetching forms');
+  navigator.serviceWorker.controller.postMessage({ type: 'fetchForms' });
+}

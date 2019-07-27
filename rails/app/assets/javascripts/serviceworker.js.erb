@@ -66,17 +66,19 @@ function onFetch(event) {
 
 function onMessage(event) {
   console.log('service worker received:', event.data);
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(function addZonePage(cache) {
-      return cache.addAll([
-        '/zones',
-      ]);
-    })
-  );
+  if (event.data.type === 'fetchForms') {
+    console.log("caching forms")
+    event.waitUntil(
+      caches.open(CACHE_NAME).then(function cacheLogForms(cache) {
+        return cache.addAll([
+          '/restoration_activity_log_entries/new', 
+        ]);
+      })
+    );
+  }
 }
 
 self.addEventListener('install', onInstall);
 self.addEventListener('activate', onActivate);
 self.addEventListener('fetch', onFetch);
 self.addEventListener('message', onMessage);
-
