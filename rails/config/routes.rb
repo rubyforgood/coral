@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   devise_for :users  
   resources :nursery_tables
   resources :zones
-  resources :dives, only: [:new, :create, :show]
+  resources :dives, only: [:new, :create, :show] do
+    post :finish, on: :member
+  end
 
   devise_scope :user do
     get 'sign_in', to: 'devise/sessions#new'

@@ -3,5 +3,14 @@ class Dive < ApplicationRecord
 
   validates :i_have_been_responsible,
     acceptance: true,
-    presence: true
+    presence: true,
+    on: :create
+
+  def finish
+    self.update(finished_at: Time.now)
+  end
+
+  def finished?
+    finished_at.present?
+  end
 end
