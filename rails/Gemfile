@@ -82,3 +82,5 @@ gem 'sprockets-rails', '>= 2.3.2'
 gem 'jquery-rails'
 # get service-workers to play nicely with rails
 gem 'serviceworker-rails', '~> 0.6'
+
+gem "faker", "~> 1.9"
