@@ -1,3 +1,6 @@
+// Google Fonts //
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,900&display=swap');
+
 /*
 * This is a manifest file that'll be compiled into application.css, which will include all the files
 * listed below.
@@ -14,30 +17,50 @@
 *= require_self
 */
 
+
 // Custom Megstrap Styling //
 
 .container-fluid {
-width: 100%;
-padding-right: 0;
-padding-left: 0;
-margin-right: auto;
-margin-left: auto;
-}
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+  margin-right: auto;
+  margin-left: auto;
+  }
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
-@import 'styling_variables', 'scaffolds', 'nursery_tables', 'zones';
+@import 'desktop', 'tablet', 'nursery_tables', 'zones';
 
-@media screen {
 
-  // Reset Styles //
+// Styling Variables //
+
+// Fonts //
+$main-font: 'Lato', sans-serif;
+
+// Colors //
+$white: #FFFFFF;
+$black: #000000;
+$light-accent: #FFB161;
+$light-shade: #E7F8FB;
+$main-color: #85C7D3;
+$dark-shade: #378593;
+$dark-accent: #7B328F;
+$main-text: #001A1F;
+$accent-text: #31013E;
+$highlight-text: #C06D19;
+
+
+@media screen { 
+
+  // Reset //
   * {
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
-  // Base-Level Styling //
+  // Base-Level //
 
   html {
     height: 100%;
@@ -50,20 +73,16 @@ margin-left: auto;
     background-color: $main-color;
     color: $main-text;
     font-family: $main-font;
-    font-size: 1.6rem;
   }
 
   .wrapper {
-    min-height: 90%;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    background: rgba(249, 251, 242, 1);
-    -moz-box-shadow: 0 0 2rem rgba(41, 30, 53, 0.5);
-    -webkit-box-shadow: 0 0 2rem rgba(41, 30, 53, 0.5);
-    box-shadow: 0 0 2rem rgba(41, 30, 53, 0.5);
-    margin: 2rem auto;
-    padding: 1% 4%; /* 18px / 800px */
+    background: $light-shade;
+    -moz-box-shadow: 0 0 2rem $dark-shade;
+    -webkit-box-shadow: 0 0 2rem $dark-shade;
+    box-shadow: 0 0 2rem $dark-shade;
   }
 
   p {
@@ -72,26 +91,26 @@ margin-left: auto;
 
   h1 {
     font-weight: 900;
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  h1.offline {
+    color: $accent-text;
   }
 
   h2 {
     font-weight: 900;
-    font-size: 2.5rem;
-    padding-bottom: 0.4rem;
-    margin: 1.8rem 0rem 2.4rem 0rem;
+    text-transform: uppercase;
   }
 
   h3 {
     font-weight: 900;
-    font-size: 1.8rem;
-    margin-bottom: 1.2rem;
+    text-transform: uppercase;
   }
 
   a {
     color: $accent-text;
-    font-weight: bold;
+    font-weight: 900;
     text-decoration: none;
   }
 
@@ -100,11 +119,36 @@ margin-left: auto;
     text-decoration: none;
   }
 
-  // Footer Styling //
+  // Buttons //
+
+  a.btn {
+    background-color: $dark-accent;
+    color: $light-shade;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 0.2rem solid $dark-accent;
+    border-radius: 0.5rem;
+    -moz-transition-duration: 0.15s;
+    -webkit-transition-duration: 0.15s;
+    transition-duration: 0.15s;
+  }
+
+  a.btn:hover {
+    background-color: $highlight-text;
+    border: 0.2rem solid $light-accent;
+  }
+
+  // Footer //
 
   footer {
     display: flex;
     flex-shrink: 0;
   }
 
+  small {
+    font-size: 60%;
+    margin-bottom: 1rem;
+  }
+
 }
+

@@ -1,0 +1,69 @@
+@media screen 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+
+  // Base-Level //
+
+  body {
+    font-size: 2.4rem;
+  }
+
+  .wrapper {
+    min-height: 95%;
+    min-width: 90%;
+    margin: 2.5rem auto;
+    padding: 1% 4%;
+  }
+
+  p {
+    font-size: 3.2rem;
+    line-height: 4.2rem;
+  }
+
+  h1 {
+    font-size: 5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.9rem;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.6rem;
+  }
+
+  a {
+    // color: $accent-text;
+    // font-weight: bold;
+    // text-decoration: none;
+  }
+
+  a:hover {
+    // color: $highlight-text;
+    // text-decoration: none;
+  }
+
+  // Buttons //
+
+  .btn {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  a.btn {
+    font-size: 2.4rem;
+    font-weight: 900;
+    padding: 1.2rem 5rem;
+  }
+
+  // Footer //
+
+  footer {
+    display: flex;
+    flex-shrink: 0;
+  }
+
+}
