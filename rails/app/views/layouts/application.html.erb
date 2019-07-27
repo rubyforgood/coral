@@ -34,10 +34,19 @@
       </header>
     </div> <%# End navbar %>
 
-    <div class="container-fluid wrapper"> <%# Start body %>
-      <%# TODO: Bootstrap this %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <div class="container-fluid wrapper"> <%# Start body %>      
+      <div class="row">
+        <%# Devise errors %>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+
+        <%# Flash message for errors %>
+        <% if flash[:alert] != nil %>
+          <div class="col-12 justify-content-center alert alert-dark" role="alert">
+            <%= flash[:alert] %>
+          </div>
+        <% end %>
+      </div>
 
       <%= yield %>
     </div> <%# End body %>
