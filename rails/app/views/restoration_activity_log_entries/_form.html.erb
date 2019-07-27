@@ -1,17 +1,18 @@
-<%= form_with(model: restoration_activity_log_entry, local: true) do |form| %>
-  <% if restoration_activity_log_entry.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(restoration_activity_log_entry.errors.count, "error") %> prohibited this restoration_activity_log_entry from being saved:</h2>
 
-      <ul>
-      <% restoration_activity_log_entry.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= simple_form_for(@restoration_activity_log_entry) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-inputs">
+    <%= f.input :cleaned %>
+    <%= f.input :percent_filled %>
+    <%= f.input :broken_corals %>
+    <%= f.input :dead_corals %>
+    <%= f.input :dive_id %>
+    <%= f.input :nursery_table_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
   </div>
 <% end %>

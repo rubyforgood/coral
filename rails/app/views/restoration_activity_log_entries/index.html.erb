@@ -2,19 +2,31 @@
 
 <h1>Restoration Activity Log Entries</h1>
 
-<table class="table">
+<table>
   <thead>
-    <tr class="row">
-      <th class="col"></th>
+    <tr>
+      <th>Cleaned</th>
+      <th>Percent filled</th>
+      <th>Broken corals</th>
+      <th>Dead corals</th>
+      <th>Dive</th>
+      <th>Nursery table</th>
+      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @restoration_activity_log_entries.each do |restoration_activity_log_entry| %>
-      <tr class="row">
-        <td class="col-4"><%= link_to 'Show', restoration_activity_log_entry %></td>
-        <td class="col-4"><%= link_to 'Edit', edit_restoration_activity_log_entry_path(restoration_activity_log_entry) %></td>
-        <td class="col-4"><%= link_to 'Destroy', restoration_activity_log_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <tr>
+        <td><%= restoration_activity_log_entry.cleaned %></td>
+        <td><%= restoration_activity_log_entry.percent_filled %></td>
+        <td><%= restoration_activity_log_entry.broken_corals %></td>
+        <td><%= restoration_activity_log_entry.dead_corals %></td>
+        <td><%= restoration_activity_log_entry.dive_id %></td>
+        <td><%= restoration_activity_log_entry.nursery_table_id %></td>
+        <td><%= link_to 'Show', restoration_activity_log_entry %></td>
+        <td><%= link_to 'Edit', edit_restoration_activity_log_entry_path(restoration_activity_log_entry) %></td>
+        <td><%= link_to 'Destroy', restoration_activity_log_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
