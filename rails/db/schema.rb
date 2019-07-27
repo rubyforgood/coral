@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_07_27_152027) do
   create_table "dives", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.timestamp "finished_at"
+    t.datetime "finished_at"
   end
 
   create_table "nursery_tables", force: :cascade do |t|
