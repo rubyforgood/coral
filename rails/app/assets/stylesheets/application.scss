@@ -1,56 +1,60 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+* vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
 
- // Custom bootstrap variables must be set or imported *before* bootstrap.
- @import "bootstrap";
- @import 'styling_variables', 'scaffolds', 'nursery_tables', 'zones';
+// Custom Megstrap Styling //
 
- @media screen {
+.container-fluid {
+width: 100%;
+padding-right: 0;
+padding-left: 0;
+margin-right: auto;
+margin-left: auto;
+}
 
-  /* --- Reset Styles --- */
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+@import 'styling_variables', 'scaffolds', 'nursery_tables', 'zones';
+
+@media screen {
+
+  // Reset Styles //
   * {
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
-  /* --- Custom Megstrap Styling --- */
+  // Base-Level Styling //
 
-  .container-fluid {
-    width: 100%;
-    padding-right: 0;
-    padding-left: 0;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  /* --- Base-Level Styling --- */
-
-  html, body {
+  html {
     height: 100%;
     width: 100%;
     font-size: 62.5%;
   }
-  
+
   body {
+    height: 90%;
+    background-color: $main-color;
+    color: $main-text;
+    font-family: $main-font;
     font-size: 1.6rem;
   }
 
   .wrapper {
-    min-height: 100%;
+    min-height: 90%;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
