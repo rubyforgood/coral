@@ -91,26 +91,26 @@ $highlight-text: #C06D19;
 
   h1 {
     font-weight: 900;
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  h1.offline {
+    color: $accent-text;
   }
 
   h2 {
     font-weight: 900;
-    font-size: 2.5rem;
-    padding-bottom: 0.4rem;
-    margin: 1.8rem 0rem 2.4rem 0rem;
+    text-transform: uppercase;
   }
 
   h3 {
     font-weight: 900;
-    font-size: 1.8rem;
-    margin-bottom: 1.2rem;
+    text-transform: uppercase;
   }
 
   a {
     color: $accent-text;
-    font-weight: bold;
+    font-weight: 900;
     text-decoration: none;
   }
 
