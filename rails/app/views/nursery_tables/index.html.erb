@@ -16,7 +16,7 @@
     <% @nursery_tables.each do |nursery_table| %>
       <tr class="row">
         <td class="col-3"><%= nursery_table.capacity %></td>
-        <td class="col-3"><%= nursery_table.zone %></td>
+        <td class="col-3"><%= nursery_table.zone.name %></td>
         <td class="col-3"><%= nursery_table.name %></td>
         <td class="col-1"><%= link_to 'Show', nursery_table %></td>
         <td class="col-1"><%= link_to 'Edit', edit_nursery_table_path(nursery_table) %></td>

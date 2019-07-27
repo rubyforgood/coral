@@ -1,4 +1,34 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Cleaned:</strong>
+  <%= @restoration_activity_log_entry.cleaned %>
+</p>
+
+<p>
+  <strong>Percent filled:</strong>
+  <%= @restoration_activity_log_entry.percent_filled %>
+</p>
+
+<p>
+  <strong>Broken corals:</strong>
+  <%= @restoration_activity_log_entry.broken_corals %>
+</p>
+
+<p>
+  <strong>Dead corals:</strong>
+  <%= @restoration_activity_log_entry.dead_corals %>
+</p>
+
+<p>
+  <strong>Dive:</strong>
+  <%= @restoration_activity_log_entry.dive_id %>
+</p>
+
+<p>
+  <strong>Nursery table:</strong>
+  <%= @restoration_activity_log_entry.nursery_table_id %>
+</p>
+
 <%= link_to 'Edit', edit_restoration_activity_log_entry_path(@restoration_activity_log_entry) %> |
 <%= link_to 'Back', restoration_activity_log_entries_path %>
