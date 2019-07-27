@@ -36,6 +36,7 @@ function onActivate(event) {
       );
     })
   );
+  event.waitUntil(self.clients.claim());
 }
 
 // Borrowed from https://github.com/TalAter/UpUp
@@ -62,6 +63,12 @@ function onFetch(event) {
   );
 }
 
+function onMessage(event) {
+  console.log('service worker received:', event.data);
+}
+
 self.addEventListener('install', onInstall);
 self.addEventListener('activate', onActivate);
 self.addEventListener('fetch', onFetch);
+self.addEventListener('message', onMessage);
+
