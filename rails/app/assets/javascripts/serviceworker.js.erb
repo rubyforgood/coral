@@ -97,8 +97,5 @@ function writeRequest(request) {
 }
 
 function safeToDelay(request) {
-  // eventually, I should match only the routes that are append-only, like
-  // log entry routes.
-  // for now we just return true, so I can test this in the absence of those routes.
-  return true;
+  return request.url.match(/\/restoration_activity_log_entries\/?$/);
 }
