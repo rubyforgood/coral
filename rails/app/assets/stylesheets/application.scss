@@ -119,7 +119,25 @@ $highlight-text: #C06D19;
     text-decoration: none;
   }
 
-  // Footer Styling //
+  // Buttons //
+
+  a.btn {
+    background-color: $dark-accent;
+    color: $light-shade;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 0.2rem solid $dark-accent;
+    border-radius: 0.5rem;
+    -moz-transition-duration: 0.15s;
+    -webkit-transition-duration: 0.15s;
+    transition-duration: 0.15s;
+  }
+
+  a.btn:hover {
+    background-color: $highlight-text;
+    border: 0.2rem solid $light-accent;
+  }
+
   // Footer //
 
   footer {

@@ -44,7 +44,20 @@
     // text-decoration: none;
   }
 
-  // Footer Styling //
+  // Buttons //
+
+  .btn {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  a.btn {
+    font-size: 2rem;
+    font-weight: 900;
+    padding: 1.2rem 5rem;
+  }
+
+  // Footer //
 
   footer {
     display: flex;
