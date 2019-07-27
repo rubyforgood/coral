@@ -1,3 +1,6 @@
+// Google Fonts //
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,900&display=swap');
+
 /*
 * This is a manifest file that'll be compiled into application.css, which will include all the files
 * listed below.
@@ -14,30 +17,50 @@
 *= require_self
 */
 
+
 // Custom Megstrap Styling //
 
 .container-fluid {
-width: 100%;
-padding-right: 0;
-padding-left: 0;
-margin-right: auto;
-margin-left: auto;
-}
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+  margin-right: auto;
+  margin-left: auto;
+  }
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
-@import 'styling_variables', 'scaffolds', 'nursery_tables', 'zones';
+@import 'desktop', 'tablet', 'nursery_tables', 'zones';
 
-@media screen {
 
-  // Reset Styles //
+// Styling Variables //
+
+// Fonts //
+$main-font: 'Lato', sans-serif;
+
+// Colors //
+$white: #FFFFFF;
+$black: #000000;
+$light-accent: #FFB161;
+$light-shade: #E7F8FB;
+$main-color: #85C7D3;
+$dark-shade: #378593;
+$dark-accent: #7B328F;
+$main-text: #001A1F;
+$accent-text: #31013E;
+$highlight-text: #C06D19;
+
+
+@media screen { 
+
+  // Reset //
   * {
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
-  // Base-Level Styling //
+  // Base-Level //
 
   html {
     height: 100%;
