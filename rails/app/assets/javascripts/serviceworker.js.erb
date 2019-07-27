@@ -36,6 +36,7 @@ function onActivate(event) {
       );
     })
   );
+  event.waitUntil(self.clients.claim());
 }
 
 // Borrowed from https://github.com/TalAter/UpUp
@@ -45,6 +46,7 @@ function onFetch(event) {
     fetch(event.request).catch(function() {
       // if it fails, try to return request from the cache
       console.log('stepping in');
+      console.log(event.request);
       return caches.match(event.request).then(function(response) {
         if (response) {
           console.log('the caching request worked!');
@@ -62,6 +64,19 @@ function onFetch(event) {
   );
 }
 
+function onMessage(event) {
+  console.log('service worker received:', event.data);
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(function addZonePage(cache) {
+      return cache.addAll([
+        '/zones',
+      ]);
+    })
+  );
+}
+
 self.addEventListener('install', onInstall);
 self.addEventListener('activate', onActivate);
 self.addEventListener('fetch', onFetch);
+self.addEventListener('message', onMessage);
+

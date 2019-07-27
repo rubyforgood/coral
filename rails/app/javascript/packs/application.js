@@ -18,3 +18,14 @@
 console.log('Hello World from Webpacker')
 
 import "controllers"
+
+document.addEventListener('serviceWorkerRegistered', () => {
+  console.log("webpack heard the sw register");
+
+  if (!navigator.serviceWorker.controller) {
+    console.log('error: no sw controller');
+    return;
+  }
+
+  navigator.serviceWorker.controller.postMessage("I worked!!!!");
+})
