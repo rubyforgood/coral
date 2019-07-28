@@ -23,8 +23,10 @@
     
     <div class="container-fluid"> <%# Start navbar %>
       <header>
-        <nav class="navbar navbar-expand-md sticky-top">
-          <a class="nav-item nav-link home" href="/">Coral Gardeners</a>
+        <nav class="navbar navbar-expand-sm">
+          <a class="navbar-brand" href="root_path">
+            <%= image_tag("logo.png", size: "65x65", alt: "Coral Gardeners Logo") %>
+          </a>
           <a class="nav-item nav-link" href="/">Home</a>
           <a class="nav-item nav-link" href="<%= nursery_tables_path %>">Nursery Tables</a>
           <a class="nav-item nav-link" href="<%= zones_path %>">Zones</a>
