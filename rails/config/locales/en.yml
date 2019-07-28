@@ -87,3 +87,7 @@ en:
       name: "Name"
       edit: "Edit"
       back: "Back"
+  restoration_activity_log_entries:
+    new:
+      pending_entries: "<span id='pending-entry-count'>%{count}</span> log entries need to be synced to the server."
+

@@ -22,8 +22,10 @@
   <body>
     <div class="container-fluid"> <%# Start navbar %>
       <header>
-        <nav class="navbar navbar-expand-md sticky-top">
-          <a class="nav-item nav-link home" href="<%= root_path %>">Coral Gardeners</a>
+        <nav class="navbar navbar-expand-sm">
+          <a class="navbar-brand" href="<%= root_path %>">
+            <%= image_tag("logo.png", size: "65x65", alt: "Coral Gardeners Logo") %>
+          </a>
           <% if user_signed_in? %>
             <a class="nav-item nav-link" href="<%= root_path %>"><%= t('.home') %></a>
             <a class="nav-item nav-link" href="<%= nursery_tables_path %>"><%= t('.nursery_tables') %></a>
@@ -40,12 +42,16 @@
       <div class="row">
         <%# Devise errors %>
         <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
 
         <%# Flash message for errors %>
-        <% if flash[:alert] != nil %>
+        <% if flash[:alert] %>
           <div class="col-12 justify-content-center alert alert-dark" role="alert">
             <%= flash[:alert] %>
+          </div>
+        <% end %>
+                <% if flash[:notice] %>
+          <div class="col-12 justify-content-center alert alert-info" role="alert">
+            <%= flash[:notice] %>
           </div>
         <% end %>
       </div>
