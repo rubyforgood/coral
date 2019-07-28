@@ -1,0 +1,35 @@
+fr:
+  simple_form:
+    "yes": 'Oui'
+    "no": 'Non'
+    required:
+      text: 'obligatoire'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Erreur, veuillez vérifier vos réponses:"
+    # Examples
+    labels:
+      defaults:
+        password: 'Mot de passe'
+      nursery_table:
+        capacity: "Capacité"
+        zone: Zone
+        name: "Prénom"
+      user:
+        new:
+          email: 'E-mail pour vous connecter.'
+        edit:
+          email: 'E-mail.'
+    # hints:
+    #   defaults:
+    #     username: 'Nom d'utilisateur pour se connecter.'
+    #     password: 'Oas de caractères spéciaux, s'il vous plaît.'
+    # include_blanks:
+    #   defaults:
+    #     age: 'Plutôt pas dire'
+    # prompts:
+    #   defaults:
+    #     age: 'Sélectionnez votre âge'

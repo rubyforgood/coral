@@ -52,6 +52,7 @@ group :development, :test do
   gem "selenium-webdriver"
   gem "teaspoon"
   gem "teaspoon-mocha"
+  gem "pry"
 end
 
 group :development do
@@ -73,6 +74,7 @@ group :test do
 end
 
 gem "devise", "~> 4.6"
+gem "devise-i18n"
 
 # Use bootstrap gem for styling
 gem 'bootstrap', '~> 4.3.1'
@@ -82,5 +84,7 @@ gem 'sprockets-rails', '>= 2.3.2'
 gem 'jquery-rails'
 # get service-workers to play nicely with rails
 gem 'serviceworker-rails', '~> 0.6'
+gem 'rails-i18n'
+
 
 gem "faker", "~> 1.9"

@@ -30,7 +30,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  layouts:
+    application:
+      home: Home
+      nursery_tables: Nursery Tables
+      zones: Zones
+      restoration_activity_log: Restoration Activity Log
+      users: Users
+      logout: Logout
+  home:
+    index:
+      welcome: "hello"
   dives:
     new:
       title: "Start dive"
@@ -40,6 +50,44 @@ en:
       title: "On dive #%{dive_id}"
       finished_at_log_message: "Finished at %{finished_at}."
       finish_button: "Finish dive"
+  nursery_tables:
+    helpers:
+      label:
+        item:
+          capacity: "Capacity"
+          zone: "Zone"
+          name: "Name"
+          nursery_table: "Nursery Tables"
+    index:
+      title: "Nursery Tables"
+      capacity: "Capacity"
+      zone: "Zone"
+      name: "Name"
+      show: Show
+      edit: Edit
+      destroy: Destroy
+      new_nursery_table: "New Nursery Table"
+    new:
+      title: "New Nursery Table"
+      capacity: "Capacity"
+      zone: "Zone"
+      name: "Name"
+      show: "Show"
+      back: "Back"
+    edit:
+      title: "Editing Nursery Table"
+      capacity: "Capacity"
+      zone: "Zone"
+      name: "Name"
+      show: "Show"
+      back: "Back"
+    show:
+      capacity: "Capacity"
+      zone: "Zone"
+      name: "Name"
+      edit: "Edit"
+      back: "Back"
   restoration_activity_log_entries:
     new:
       pending_entries: "<span id='pending-entry-count'>%{count}</span> log entries need to be synced to the server."
+
