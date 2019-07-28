@@ -20,18 +20,20 @@
   </head>
 
   <body>
-    
     <div class="container-fluid"> <%# Start navbar %>
       <header>
         <nav class="navbar navbar-expand-sm">
           <a class="navbar-brand" href="root_path">
             <%= image_tag("logo.png", size: "65x65", alt: "Coral Gardeners Logo") %>
           </a>
-          <a class="nav-item nav-link" href="/">Home</a>
-          <a class="nav-item nav-link" href="<%= nursery_tables_path %>">Nursery Tables</a>
-          <a class="nav-item nav-link" href="<%= zones_path %>">Zones</a>
-          <a class="nav-item nav-link" href="<%= restoration_activity_log_entries_path %>">Restoration Activity Log</a>
-          <a class="nav-item nav-link" href="<%= users_path %>">Users</a>
+          <% if user_signed_in? %>
+            <a class="nav-item nav-link" href="/">Home</a>
+            <a class="nav-item nav-link" href="<%= nursery_tables_path %>">Nursery Tables</a>
+            <a class="nav-item nav-link" href="<%= zones_path %>">Zones</a>
+            <a class="nav-item nav-link" href="<%= restoration_activity_log_entries_path %>">Restoration Activity Log</a>
+            <a class="nav-item nav-link" href="<%= users_path %>">Users</a>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class =>"nav-item nav-link" %>
+          <% end %>
         </nav>
       </header>
     </div> <%# End navbar %>

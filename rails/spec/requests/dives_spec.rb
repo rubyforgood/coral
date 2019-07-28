@@ -1,6 +1,8 @@
 require 'rails_helper'
+require 'support/authentication'
 
 RSpec.describe "Dives", type: :request do
+  include_context "logged in" 
   describe "GET show" do
     let!(:dive) { FactoryBot.create(:dive) } 
 
