@@ -26,26 +26,26 @@
           <a class="navbar-brand" href="<%= root_path %>">
             <%= image_tag("logo.png", size: "65x65", alt: "Coral Gardeners Logo") %>
           </a>
-          if user_signed_in?
+          <% if user_signed_in? %>
             <li class="nav-item">
-              <a class="nav-link" href="/">Home</a>
+              <a class="nav-link" href="<%= root_path %>"><%= t('.home') %></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<%= nursery_tables_path %>">Nursery Tables</a>
+              <a class="nav-link" href="<%= nursery_tables_path %>"><%= t('.nursery_tables') %></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<%= zones_path %>">Zones</a>
+              <a class="nav-link" href="<%= zones_path %>"><%= t('.zones') %></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<%= restoration_activity_log_entries_path %>">Restoration Activity Log</a>
+              <a class="nav-link" href="<%= restoration_activity_log_entries_path %>"><%= t('.restoration_activity_log') %></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<%= users_path %>">Users</a>
+              <a class="nav-link" href="<%= users_path %>"><%= t('.users') %></a>
             </li>
             <li class="nav-item">
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class =>"nav-link" %>
+              <%= link_to t('.logout'), destroy_user_session_path, method: :delete, :class =>"nav-link" %>
             </li>
-          end
+          <% end %>
         </nav>
       </header>
     </div> <%# End navbar %>
