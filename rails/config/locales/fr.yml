@@ -29,26 +29,38 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+fr:
   home:
     index:
-      welcome: "hello"
+      welcome: "Bonjour le monde"
   dives:
     new:
-      title: "Start dive"
-      checklist_preface: "Before you start your dive, double-check the following:"
-      submit: "Start dive"
+      title: "Commencer la plongée"
+      checklist_preface: "Avant de commencer votre plongée, vérifiez les points suivants:"
+      submit: "Commencer la plongée"
     show:
-      title: "On dive #%{dive_id}"
-      finished_at_log_message: "Finished at %{finished_at}."
-      finish_button: "Finish dive"
+      title: "En plongée #%{dive_id}"
+      finished_at_log_message: "Terminé à %{finished_at}."
+      finish_button: "Terminer la plongée"
   nursery_tables:
     index:
-      capacity: "Capacity"
+      capacity: "Capacité"
       zone: "Zone"
-      name: "Name"
+      name: "Prénom"
     new:
-      capacity: "Capacity"
+      capacity: "Capacité"
       zone: "Zone"
-      name: "Name"
+      name: "Prénom"
     show:
+
+  simple_form:
+    labels:
+      defaults:
+        capacity: "Capacité"
+        zone: "Zone"
+        name: "Prénom"
+      nursery_table:
+        capacity: "Capacité4"
+        zone: "Zone4"
+        name: "Prénom4"
+
