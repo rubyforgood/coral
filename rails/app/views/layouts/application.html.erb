@@ -23,14 +23,14 @@
     <div class="container-fluid"> <%# Start navbar %>
       <header>
         <nav class="navbar navbar-expand-md sticky-top">
-          <a class="nav-item nav-link home" href="/">Coral Gardeners</a>
+          <a class="nav-item nav-link home" href="<%= root_path %>">Coral Gardeners</a>
           <% if user_signed_in? %>
-            <a class="nav-item nav-link" href="/">Home</a>
-            <a class="nav-item nav-link" href="<%= nursery_tables_path %>">Nursery Tables</a>
-            <a class="nav-item nav-link" href="<%= zones_path %>">Zones</a>
-            <a class="nav-item nav-link" href="<%= restoration_activity_log_entries_path %>">Restoration Activity Log</a>
-            <a class="nav-item nav-link" href="<%= users_path %>">Users</a>
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class =>"nav-item nav-link" %>
+            <a class="nav-item nav-link" href="<%= root_path %>"><%= t('.home') %></a>
+            <a class="nav-item nav-link" href="<%= nursery_tables_path %>"><%= t('.nursery_tables') %></a>
+            <a class="nav-item nav-link" href="<%= zones_path %>"><%= t('.zones') %></a>
+            <a class="nav-item nav-link" href="<%= restoration_activity_log_entries_path %>"><%= t('.restoration_activity_log') %></a>
+            <a class="nav-item nav-link" href="<%= users_path %>"><%= t('.users') %></a>
+            <%= link_to t('.logout'), destroy_user_session_path, method: :delete, :class =>"nav-item nav-link" %>
           <% end %>
         </nav>
       </header>

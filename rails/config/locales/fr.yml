@@ -30,6 +30,24 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fr:
+  layouts:
+    application:
+      home: Page d'accueil
+      nursery_tables: Tables de pépinière
+      zones: Zones
+      restoration_activity_log: Journal d'activité de restauration
+      users: Utilisateurs
+      logout: Déconnexion
+  helpers:
+    label:
+      nursery_table:
+        capacity: "Capacité"
+        zone: "Zone"
+        name: "Prénom"
+    submit:
+      nursery_table:
+        create: "Créer u(ne) Table de Pépinière"
+        update: "Modifier ce(tte) Table de Pépinière"
   home:
     index:
       welcome: "Bonjour le monde"
@@ -44,23 +62,31 @@ fr:
       finish_button: "Terminer la plongée"
   nursery_tables:
     index:
+      title: "Tables de Pépinière"
       capacity: "Capacité"
       zone: "Zone"
       name: "Prénom"
+      show: Montrer
+      edit: Modifier
+      destroy: Effacer
+      new_nursery_table: "Nouvelle Table de Pépinière"
     new:
+      title: "Nouvelle Table de Pépinière"
       capacity: "Capacité"
       zone: "Zone"
       name: "Prénom"
+      show: Montrer
+      back: "Retour"
+    edit:
+      title: "Éditer la Table de Pépinière"
+      capacity: "Capacité"
+      zone: "Zone"
+      name: "Prénom"
+      show: Montrer
+      back: "Retour"
     show:
-
-  simple_form:
-    labels:
-      defaults:
-        capacity: "Capacité"
-        zone: "Zone"
-        name: "Prénom"
-      nursery_table:
-        capacity: "Capacité4"
-        zone: "Zone4"
-        name: "Prénom4"
-
+      capacity: "Capacité"
+      zone: "Zone"
+      name: "Prénom"
+      edit: "Modifier"
+      back: "Retour"

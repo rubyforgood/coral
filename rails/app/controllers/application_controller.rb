@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
                           I18n.default_locale
     end
 
-    def default_url_options
-        { locale: I18n.locale }
+    def default_url_options(options={})
+        options.merge({ locale: I18n.locale })
     end
 
     protected
@@ -22,5 +22,4 @@ class ApplicationController < ActionController::Base
         devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password, :password_confirmation])
         devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email, :password, :password_confirmation, :current_password])
     end
-
 end

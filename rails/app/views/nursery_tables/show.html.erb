@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Capacity:</strong>
+  <strong><%= t('.capacity') %>:</strong>
   <%= @nursery_table.capacity %>
 </p>
 
 <p>
-  <strong>Zone:</strong>
+  <strong><%= t('.zone') %>:</strong>
   <%= @nursery_table.zone.name %>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= t('.name') %>:</strong>
   <%= @nursery_table.name %>
 </p>
 
-<%= link_to 'Edit', edit_nursery_table_path(@nursery_table) %> |
-<%= link_to 'Back', nursery_tables_path %>
+<%= link_to t('.edit'), edit_nursery_table_path(@nursery_table) %> |
+<%= link_to t('.back'), nursery_tables_path %>

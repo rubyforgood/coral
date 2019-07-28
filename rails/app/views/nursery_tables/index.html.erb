@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Nursery Tables</h1>
+<h1><%= t('.title') %></h1>
 
 <table class="table">
   <thead>
@@ -18,9 +18,9 @@
         <td class="col-3"><%= nursery_table.capacity %></td>
         <td class="col-3"><%= nursery_table.zone.name %></td>
         <td class="col-3"><%= nursery_table.name %></td>
-        <td class="col-1"><%= link_to 'Show', nursery_table %></td>
-        <td class="col-1"><%= link_to 'Edit', edit_nursery_table_path(nursery_table) %></td>
-        <td class="col-1"><%= link_to 'Destroy', nursery_table, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="col-1"><%= link_to t('.show'), nursery_table %></td>
+        <td class="col-1"><%= link_to t('.edit'), edit_nursery_table_path(nursery_table) %></td>
+        <td class="col-1"><%= link_to t('.destroy'), nursery_table, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Nursery Table', new_nursery_table_path %>
+<%= link_to t('.new_nursery_table'), new_nursery_table_path %>
