@@ -6,10 +6,10 @@
   <div class="form-inputs">
     <%= f.input :cleaned %>
     <%= f.input :percent_filled %>
-    <%= f.input :broken_corals %>
+    <%= f.input :broken_corals, label: "Total fragments" %>
     <%= f.input :dead_corals %>
-    <%= f.input :dive_id %>
-    <%= f.input :nursery_table_id %>
+    <%= f.input :nursery_table_id, collection:  @nursery_tables %>
+    <%= f.input :dive_id, as: 'hidden' %>
     <%= f.input :images, input_html: { multiple: true }%>
   </div>
 
