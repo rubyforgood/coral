@@ -43,7 +43,7 @@ function onActivate(event) {
 function onFetch(event) {
   event.respondWith(
     // try to return untouched request from network first
-    fetch(event.request).catch(function() {
+    fetch(event.request.clone()).catch(function() {
       // if it fails, try to return request from the cache
       console.log('stepping in');
       console.log(event.request);
@@ -52,6 +52,12 @@ function onFetch(event) {
           console.log('the caching request worked!');
           return response;
         }
+
+        if (writeRequest(event.request) && safeToDelay(event.request)) {
+          delayRequest(event.request);
+          return caches.match(delayResponseFor(event.request));
+        }
+
         // if not found in cache, return default offline content for navigate requests
         console.log('try to return the default offline content');
         if (event.request.mode === 'navigate' ||
@@ -67,14 +73,7 @@ function onFetch(event) {
 function onMessage(event) {
   console.log('service worker received:', event.data);
   if (event.data.type === 'fetchForms') {
-    console.log("caching forms")
-    event.waitUntil(
-      caches.open(CACHE_NAME).then(function cacheLogForms(cache) {
-        return cache.addAll([
-          '/restoration_activity_log_entries/new', 
-        ]);
-      })
-    );
+    event.waitUntil(fetchForms);
   }
 }
 
@@ -82,3 +81,73 @@ self.addEventListener('install', onInstall);
 self.addEventListener('activate', onActivate);
 self.addEventListener('fetch', onFetch);
 self.addEventListener('message', onMessage);
+
+function fetchForms() {
+  console.log("caching forms")
+  caches.open(CACHE_NAME).then(function cacheLogForms(cache) {
+    return cache.addAll([
+      '/restoration_activity_log_entries/new', 
+    ]);
+  })
+}
+
+function writeRequest(request) {
+  return request.method === 'POST' ||
+    request.method === 'PUT' ||
+    request.method === 'PATCH' ||
+    request.method === 'DELETE';
+}
+
+function safeToDelay(request) {
+  return request.url.match(/\/restoration_activity_log_entries\/?$/);
+}
+
+function delayResponseFor(request) {
+  return '/restoration_activity_log_entries/new'
+}
+
+function delayRequest(request) {
+  console.log('storing the request to be made later');
+  initWriteDatabase()
+    .then(db => storeRequestAsWrite(db, request))
+    .then(msg => console.log('request stored', msg))
+    .catch(console.error);
+}
+
+function storeRequestAsWrite(db, request) {
+  return new Promise((resolve, reject) => {
+    var requestKey = (new Date()).toISOString();
+    var storableRequest = {
+      url: request.url,
+    };
+    console.log('storable request', storableRequest);
+    var dbAdd = db.transaction(["writes"], 'readwrite')
+      .objectStore("writes")
+      .add({
+        key: requestKey,
+        request: storableRequest,
+        status: 'queued',
+      });
+    dbAdd.onsuccess = resolve;
+    dbAdd.onerror = reject;
+  });
+}
+
+function initWriteDatabase() {
+  return new Promise((resolve, reject) => {
+    console.log('db init');
+    var request = self.indexedDB.open("writeDatabase", 3);
+    request.onsuccess = (event) => {
+      console.log('db opened');
+      resolve(event.target.result);
+    }
+    request.onupgradeneeded = function(event) {
+      console.log('upgrading db');
+      // Save the IDBDatabase interface 
+      var db = event.target.result;
+
+      // Create an objectStore for this database
+      var objectStore = db.createObjectStore("writes", { keyPath: "key" });
+    };
+  });
+}

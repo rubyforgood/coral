@@ -1,5 +1,50 @@
 <h1>New Restoration Activity Log Entry</h1>
 
+<p class="alert"><%=t('.pending_entries', count: "-").html_safe %></p>
+
 <%= render 'form', restoration_activity_log_entry: @restoration_activity_log_entry %>
 
 <%= link_to 'Back', restoration_activity_log_entries_path %>
+
+<script>
+function initWriteDatabase() {
+  return new Promise((resolve, reject) => {
+    console.log('db init');
+    var request = self.indexedDB.open("writeDatabase", 3);
+    request.onsuccess = (event) => {
+      console.log('db opened');
+      resolve(event.target.result);
+    }
+    request.onupgradeneeded = function(event) {
+      console.log('upgrading db');
+      // Save the IDBDatabase interface 
+      var db = event.target.result;
+
+      // Create an objectStore for this database
+      var objectStore = db.createObjectStore("writes", { keyPath: "key" });
+    };
+  });
+}
+
+function getAllWrites(db) {
+  return new Promise((resolve, reject) => {
+    var writes = [];
+    var writesCursorRequest = db.transaction("writes").objectStore("writes").openCursor();
+    writesCursorRequest.onsuccess = function(event) {
+      var cursor = event.target.result;
+      if(cursor) {
+        writes.push(cursor.value);
+        cursor.continue();
+      } else {
+        resolve(writes);
+      }
+    }
+  })
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initWriteDatabase().then(getAllWrites).then(writes => {
+    document.getElementById('pending-entry-count').innerHTML = writes.length;
+  });
+});
+</script>

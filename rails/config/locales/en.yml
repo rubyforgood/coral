@@ -40,3 +40,6 @@ en:
       title: "On dive #%{dive_id}"
       finished_at_log_message: "Finished at %{finished_at}."
       finish_button: "Finish dive"
+  restoration_activity_log_entries:
+    new:
+      pending_entries: "<span id='pending-entry-count'>%{count}</span> log entries need to be synced to the server."
