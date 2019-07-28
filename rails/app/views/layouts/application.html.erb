@@ -38,12 +38,16 @@
       <div class="row">
         <%# Devise errors %>
         <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
 
         <%# Flash message for errors %>
-        <% if flash[:alert] != nil %>
+        <% if flash[:alert] %>
           <div class="col-12 justify-content-center alert alert-dark" role="alert">
             <%= flash[:alert] %>
+          </div>
+        <% end %>
+                <% if flash[:notice] %>
+          <div class="col-12 justify-content-center alert alert-info" role="alert">
+            <%= flash[:notice] %>
           </div>
         <% end %>
       </div>
