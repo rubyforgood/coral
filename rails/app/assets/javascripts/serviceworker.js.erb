@@ -5,8 +5,10 @@ function onInstall(event) {
   console.log('[Serviceworker]', "Installing!", event);
   event.waitUntil(
     caches.open(CACHE_NAME).then(function prefill(cache) {
+       /* See this pretty chart 
+      https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers#Basic_architecture */
+      self.skipWaiting()
       return cache.addAll([
-
         // make sure serviceworker.js is not required by application.js
         // if you want to reference application.js from here
         '<%#= asset_path "application.js" %>',
@@ -73,7 +75,14 @@ function onFetch(event) {
 function onMessage(event) {
   console.log('service worker received:', event.data);
   if (event.data.type === 'fetchForms') {
-    event.waitUntil(fetchForms);
+    event.waitUntil(
+      caches.open(CACHE_NAME)
+        .then(function cacheLogForms(cache) {
+          return cache.addAll([
+            '/restoration_activity_log_entries/new',
+          ])
+        })
+    )
   }
 }
 
@@ -81,15 +90,6 @@ self.addEventListener('install', onInstall);
 self.addEventListener('activate', onActivate);
 self.addEventListener('fetch', onFetch);
 self.addEventListener('message', onMessage);
-
-function fetchForms() {
-  console.log("caching forms")
-  caches.open(CACHE_NAME).then(function cacheLogForms(cache) {
-    return cache.addAll([
-      '/restoration_activity_log_entries/new', 
-    ]);
-  })
-}
 
 function writeRequest(request) {
   return request.method === 'POST' ||
@@ -143,7 +143,7 @@ function initWriteDatabase() {
     }
     request.onupgradeneeded = function(event) {
       console.log('upgrading db');
-      // Save the IDBDatabase interface 
+      // Save the IDBDatabase interface
       var db = event.target.result;
 
       // Create an objectStore for this database

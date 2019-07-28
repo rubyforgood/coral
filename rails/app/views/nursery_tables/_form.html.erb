@@ -17,8 +17,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :zone_id %>
-    <%= form.text_field :zone_id %>
+    <%= form.label :zone %>
+    <%= form.select :zone_id, options_from_collection_for_select(Zone.all, :name, :name) %>
   </div>
 
   <div class="field">

@@ -15,6 +15,7 @@ class RestorationActivityLogEntriesController < ApplicationController
   # GET /restoration_activity_log_entries/new
   def new
     @restoration_activity_log_entry = RestorationActivityLogEntry.new
+    @nursery_tables = NurseryTable.all
   end
 
   # GET /restoration_activity_log_entries/1/edit
@@ -31,6 +32,8 @@ class RestorationActivityLogEntriesController < ApplicationController
         format.html { redirect_to @restoration_activity_log_entry, notice: 'Restoration activity log entry was successfully created.' }
         format.json { render :show, status: :created, location: @restoration_activity_log_entry }
       else
+        @nursery_tables = NurseryTable.all
+
         format.html { render :new }
         format.json { render json: @restoration_activity_log_entry.errors, status: :unprocessable_entity }
       end
