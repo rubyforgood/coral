@@ -76,6 +76,7 @@ $highlight-text: #C06D19;
   }
 
   .wrapper {
+    min-width: 100%;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -117,6 +118,16 @@ $highlight-text: #C06D19;
   a:hover {
     color: $highlight-text;
     text-decoration: none;
+  }
+
+  // Navbar //
+
+  nav {
+    padding: 0 8rem;
+    display: flex;
+    flex-shrink: 0;
+    border-bottom: 0.5rem solid $dark-shade;
+    font-size: 1.8rem;
   }
 
   // Buttons //
