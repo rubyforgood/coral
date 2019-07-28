@@ -26,14 +26,26 @@
           <a class="navbar-brand" href="root_path">
             <%= image_tag("logo.png", size: "65x65", alt: "Coral Gardeners Logo") %>
           </a>
-          <% if user_signed_in? %>
-            <a class="nav-item nav-link" href="/">Home</a>
-            <a class="nav-item nav-link" href="<%= nursery_tables_path %>">Nursery Tables</a>
-            <a class="nav-item nav-link" href="<%= zones_path %>">Zones</a>
-            <a class="nav-item nav-link" href="<%= restoration_activity_log_entries_path %>">Restoration Activity Log</a>
-            <a class="nav-item nav-link" href="<%= users_path %>">Users</a>
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class =>"nav-item nav-link" %>
-          <% end %>
+          <%# if user_signed_in? %>
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<%= nursery_tables_path %>">Nursery Tables</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<%= zones_path %>">Zones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<%= restoration_activity_log_entries_path %>">Restoration Activity Log</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<%= users_path %>">Users</a>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class =>"nav-link" %>
+            </li>
+          <%# end %>
         </nav>
       </header>
     </div> <%# End navbar %>
