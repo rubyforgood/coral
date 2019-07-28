@@ -120,6 +120,16 @@ $highlight-text: #C06D19;
     text-decoration: none;
   }
 
+  // Navbar //
+
+  nav {
+    padding: 0 8rem;
+    display: flex;
+    flex-shrink: 0;
+    border-bottom: 0.5rem solid $dark-shade;
+    font-size: 1.8rem;
+  }
+
   // Buttons //
 
   a.btn {
