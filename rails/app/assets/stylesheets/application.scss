@@ -26,7 +26,42 @@
   padding-left: 0;
   margin-right: auto;
   margin-left: auto;
-  }
+}
+
+h5.card-title {
+  font-size: 3rem;
+}
+
+h6.card-subtitle {
+  font-size: 1.6rem;
+  padding-bottom: 1rem;
+}
+
+.card-footer > a.btn {
+  background-color: #FFB161;
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 0.2rem solid #FFB161;
+  border-radius: 0.5rem;
+  -moz-transition-duration: 0.15s;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  margin: 1rem;
+  padding: 1.2rem 3rem;
+}
+
+.card-footer > a.btn:hover {
+  background-color: #31013E;
+  border: 0.2rem solid #7B328F;
+}
+
+p.card-text {
+  font-size: 2rem;
+  line-height: 2.4rem;
+}
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
