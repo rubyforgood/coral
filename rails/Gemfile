@@ -74,6 +74,7 @@ group :test do
 end
 
 gem "devise", "~> 4.6"
+gem "devise-i18n"
 
 # Use bootstrap gem for styling
 gem 'bootstrap', '~> 4.3.1'
