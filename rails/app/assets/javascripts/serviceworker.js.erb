@@ -43,7 +43,7 @@ function onActivate(event) {
 function onFetch(event) {
   event.respondWith(
     // try to return untouched request from network first
-    fetch(event.request).catch(function() {
+    fetch(event.request.clone()).catch(function() {
       // if it fails, try to return request from the cache
       console.log('stepping in');
       console.log(event.request);
@@ -120,6 +120,7 @@ function storeRequestAsWrite(db, request) {
     var storableRequest = {
       url: request.url,
     };
+    console.log('storable request', storableRequest);
     var dbAdd = db.transaction(["writes"], 'readwrite')
       .objectStore("writes")
       .add({
