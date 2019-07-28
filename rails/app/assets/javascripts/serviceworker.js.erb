@@ -73,7 +73,14 @@ function onFetch(event) {
 function onMessage(event) {
   console.log('service worker received:', event.data);
   if (event.data.type === 'fetchForms') {
-    event.waitUntil(fetchForms);
+    event.waitUntil(
+      caches.open(CACHE_NAME)
+        .then(function cacheLogForms(cache) {
+          return cache.addAll([
+            '/restoration_activity_log_entries/new',
+          ])
+        })
+    )
   }
 }
 
@@ -81,15 +88,6 @@ self.addEventListener('install', onInstall);
 self.addEventListener('activate', onActivate);
 self.addEventListener('fetch', onFetch);
 self.addEventListener('message', onMessage);
-
-function fetchForms() {
-  console.log("caching forms")
-  caches.open(CACHE_NAME).then(function cacheLogForms(cache) {
-    return cache.addAll([
-      '/restoration_activity_log_entries/new', 
-    ]);
-  })
-}
 
 function writeRequest(request) {
   return request.method === 'POST' ||
@@ -143,7 +141,7 @@ function initWriteDatabase() {
     }
     request.onupgradeneeded = function(event) {
       console.log('upgrading db');
-      // Save the IDBDatabase interface 
+      // Save the IDBDatabase interface
       var db = event.target.result;
 
       // Create an objectStore for this database
