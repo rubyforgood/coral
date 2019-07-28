@@ -30,5 +30,12 @@
   <%= @restoration_activity_log_entry.nursery_table_id %>
 </p>
 
+<p>
+  <strong>Images:</strong>
+  <% @restoration_activity_log_entry.images.each do |image| %>
+    <img src="<%= url_for(image) %>"  width="300"/>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_restoration_activity_log_entry_path(@restoration_activity_log_entry) %> |
 <%= link_to 'Back', restoration_activity_log_entries_path %>
