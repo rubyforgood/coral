@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Dive do
   describe "validations" do
@@ -30,7 +30,7 @@ RSpec.describe Dive do
   describe "checking if a dive is finished" do
     it "is true if finished_at is set" do
       subject = FactoryBot.build(:dive)
-      subject.finished_at = Time.now
+      subject.finished_at = Time.zone.now
 
       expect(subject).to be_finished
     end

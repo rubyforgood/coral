@@ -1,8 +1,5 @@
 class CreateDives < ActiveRecord::Migration[5.2]
   def change
-    create_table :dives do |t|
-
-      t.timestamps
-    end
+    create_table :dives, &:timestamps
   end
 end

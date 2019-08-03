@@ -1,5 +1,5 @@
-require 'rails_helper'
-require 'support/authentication'
+require "rails_helper"
+require "support/authentication"
 
 RSpec.describe "Restoration Activity Log", type: :request do
   include_context "logged in"
@@ -15,7 +15,7 @@ RSpec.describe "Restoration Activity Log", type: :request do
 
   describe "GET new" do
     it "succeeds" do
-      get '/restoration_activity_log_entries/new'
+      get "/restoration_activity_log_entries/new"
 
       expect(response).to be_successful
     end
@@ -24,15 +24,15 @@ RSpec.describe "Restoration Activity Log", type: :request do
   describe "POST create" do
     context "given images" do
       subject do
-        -> {
-          post '/restoration_activity_log_entries', params: { restoration_activity_log_entry: { images: images } }
+        lambda {
+          post "/restoration_activity_log_entries", params: { restoration_activity_log_entry: { images: images } }
         }
       end
 
       let(:images) do
         [
-          fixture_file_upload(Rails.root.join('spec', 'factories','images', "GOPR3892.JPG")),
-          fixture_file_upload(Rails.root.join('spec', 'factories','images', "GOPR3893.JPG"))
+          fixture_file_upload(Rails.root.join("spec", "factories", "images", "GOPR3892.JPG")),
+          fixture_file_upload(Rails.root.join("spec", "factories", "images", "GOPR3893.JPG"))
         ]
       end
 
@@ -45,25 +45,24 @@ RSpec.describe "Restoration Activity Log", type: :request do
       end
 
       it "adds a log entry" do
-        expect { subject.call }.to change {RestorationActivityLogEntry.count }.by(1)
+        expect { subject.call }.to change { RestorationActivityLogEntry.count }.by(1)
       end
     end
 
     describe "PUT update" do
       context "given images" do
         subject do
-          -> {
+          lambda {
             put "/restoration_activity_log_entries/#{log_entry.id}", params: { restoration_activity_log_entry: { images: images } }
           }
         end
 
         let!(:log_entry) { FactoryBot.create(:restoration_activity_log_entry) }
 
-
         let(:images) do
           [
-            fixture_file_upload(Rails.root.join('spec', 'factories','images', "GOPR3892.JPG")),
-            fixture_file_upload(Rails.root.join('spec', 'factories','images', "GOPR3893.JPG"))
+            fixture_file_upload(Rails.root.join("spec", "factories", "images", "GOPR3892.JPG")),
+            fixture_file_upload(Rails.root.join("spec", "factories", "images", "GOPR3893.JPG"))
           ]
         end
 

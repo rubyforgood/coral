@@ -5,12 +5,12 @@ class Dive < ApplicationRecord
   attr_accessor :i_have_been_responsible
 
   validates :i_have_been_responsible,
-    acceptance: true,
-    presence: true,
-    on: :create
+            acceptance: true,
+            presence: true,
+            on: :create
 
   def finish
-    self.update(finished_at: Time.now)
+    update(finished_at: Time.zone.now)
   end
 
   def finished?
