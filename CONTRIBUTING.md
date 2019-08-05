@@ -62,3 +62,11 @@ To run the app and related servers in docker, do the following:
 6. Run the tests: `docker run --rm web bundle exec rails spec`
 7. Run `docker-compose up` to build and start everything.
 8. View the running app in the browser at [http://localhost:3000](http://localhost:3000)
+
+## Service-Workers
+
+To help with development, the application contains extensive logging around service-worker activity.
+
+It is also helpful to use the chrome developer tools. The "Application" tab contains the ability to see which service-workers have been registered, the ability to update/unregister service-workers, and the ability to clear the cache for the domain you're working in. The "Network" tab contains the ability to force a network disconnection. Please note that using the chome tools for disconnecting from the network may not be 100% accurate, so it's recommended to manually turn of your network connection.
+
+To test whether service-workers are operating, navigate to the `/restoration_activity_log_entries` endpoint. Creating a new log entry while you're offline should return a message that `log entries need to be synced to the server`.
