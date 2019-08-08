@@ -8,7 +8,7 @@
 
 # Create Users
 
-require 'faker'
+require "faker"
 
 5.times do
   User.create(
@@ -32,7 +32,7 @@ end
   )
 end
 
-15.times{ Dive.create }
+15.times { Dive.create }
 
 20.times do
   RestorationActivityLogEntry.create(

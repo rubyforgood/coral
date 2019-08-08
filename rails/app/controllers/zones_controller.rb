@@ -1,5 +1,5 @@
 class ZonesController < ApplicationController
-  before_action :set_zone, only: [:show, :edit, :update, :destroy]
+  before_action :set_zone, only: %i[show edit update destroy]
 
   # GET /zones
   # GET /zones.json
@@ -28,7 +28,7 @@ class ZonesController < ApplicationController
 
     respond_to do |format|
       if @zone.save
-        format.html { redirect_to zones_path, notice: 'Zone was successfully created.' }
+        format.html { redirect_to zones_path, notice: "Zone was successfully created." }
         format.json { render :show, status: :created, location: @zone }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ZonesController < ApplicationController
   def update
     respond_to do |format|
       if @zone.update(zone_params)
-        format.html { redirect_to @zone, notice: 'Zone was successfully updated.' }
+        format.html { redirect_to @zone, notice: "Zone was successfully updated." }
         format.json { render :show, status: :ok, location: @zone }
       else
         format.html { render :edit }
@@ -56,19 +56,20 @@ class ZonesController < ApplicationController
   def destroy
     @zone.destroy
     respond_to do |format|
-      format.html { redirect_to zones_url, notice: 'Zone was successfully destroyed.' }
+      format.html { redirect_to zones_url, notice: "Zone was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_zone
-      @zone = Zone.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def zone_params
-      params.require(:zone).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_zone
+    @zone = Zone.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def zone_params
+    params.require(:zone).permit(:name)
+  end
 end
