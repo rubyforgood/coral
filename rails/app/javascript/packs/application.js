@@ -19,15 +19,15 @@ console.log('Hello World from Webpacker')
 
 import "controllers"
 
-// document.addEventListener('serviceWorkerRegistered', () => {
-//   console.log("webpack heard the sw register");
+document.addEventListener('serviceWorkerRegistered', () => {
+  console.log("webpack heard the sw register");
 
-//   if (navigator.serviceWorker.controller) {
-//     fetchForms()
-//   } else {
-//     navigator.serviceWorker.addEventListener('controllerchange', fetchForms);
-//   }
-// });
+  if (navigator.serviceWorker.controller) {
+    fetchForms()
+  } else {
+    navigator.serviceWorker.addEventListener('controllerchange', fetchForms);
+  }
+});
 
 function fetchForms() {
   console.log('fetching forms');
@@ -35,5 +35,9 @@ function fetchForms() {
 }
 
 navigator.serviceWorker.ready.then(_event => {
-  fetchForms();
+  if (navigator.serviceWorker.controller) {
+    fetchForms()
+  } else {
+    navigator.serviceWorker.addEventListener('controllerchange', fetchForms);
+  }
 });
