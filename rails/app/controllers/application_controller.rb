@@ -11,9 +11,9 @@ class ApplicationController < ActionController::Base
     I18n.locale = locale if I18n.available_locales.include?(locale)
   end
 
-  def default_url_options(options = {})
-    options.merge(locale: I18n.locale)
-  end
+  # def default_url_options(options = {})
+  #   options.merge(locale: I18n.locale)
+  # end
 
   protected
 
