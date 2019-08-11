@@ -18,6 +18,7 @@ services:
     depends_on:
       - database
       - redis
+      - webpacker_dev
     build: rails
     ports:
       - "3000:3000"
