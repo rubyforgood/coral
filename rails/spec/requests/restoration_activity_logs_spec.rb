@@ -44,6 +44,16 @@ RSpec.describe "Restoration Activity Log", type: :request do
         expect(response).to be_successful
       end
 
+      context "given a dive identifier" do
+        it "redirects to the dive page" do
+          post "/restoration_activity_log_entries", params: {
+            restoration_activity_log_entry: { dive_id: 33 }
+          }
+
+          expect(response).to redirect_to dive_path(33)
+        end
+      end
+
       it "adds a log entry" do
         expect { subject.call }.to change { RestorationActivityLogEntry.count }.by(1)
       end
