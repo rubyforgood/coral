@@ -84,3 +84,7 @@ gem "rails-i18n"
 gem "serviceworker-rails", "~> 0.6"
 
 gem "faker", "~> 1.9"
+
+## Gemfile for Rails 3+, Sinatra, and Merb
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap' 

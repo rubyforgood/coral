@@ -10,6 +10,10 @@ class NurseryTablesController < ApplicationController
   # GET /nursery_tables/1
   # GET /nursery_tables/1.json
   def show
+    # @nursery_table = NurseryTable.paginate(page: 1, per_page: 2).last.restoration_activity_log_entries
+    # @nursery_table = NurseryTable.first.restoration_activity_log_entries.paginate(page:1, per_page: 1)
+    
+  
   end
 
   # GET /nursery_tables/new

@@ -14,6 +14,38 @@
   <strong><%= t('.name') %>:</strong>
   <%= @nursery_table.name %>
 </p>
+<br>
+<br>
+
+<p>
+  <strong><%= t('.Restoration Activity Logs') %>:</strong>
+  <br>
+  <br>
+
+
+
+  <% @nursery_table.restoration_activity_log_entries.each do |entry| %>
+    <br>
+    <div class="col-4">
+      <div class="card text-center">
+        <div class="card-body restoration-index">
+          <h5 class="card-title"><%= entry.nursery_table.name %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= entry.created_at %></h6>
+          <p class="card-text">The table is <%= entry.percent_filled %> percent full. There are <%= entry.bleached_corals %> fragmented corals and <%= entry.dead_corals %> dead corals.</p>
+          <p class="card-text text-muted">Was the nursery table cleaned? <%= entry.cleaned %></p>
+        </div>
+        <div class="card-footer restoration-index">
+          <a href="#" class="btn btn-primary">Show</a>
+          <a href="#" class="btn btn-primary">Edit</a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <%= will_paginate @nursery_table.restoration_activity_log_entries.paginate(page: 1, per_page: 1), next_label: "Newer", :page_links => false %>
+
+</p>
+
 
 <%= link_to t('.edit'), edit_nursery_table_path(@nursery_table) %> |
 <%= link_to t('.back'), nursery_tables_path %>
