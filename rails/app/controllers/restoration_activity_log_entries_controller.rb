@@ -14,7 +14,7 @@ class RestorationActivityLogEntriesController < ApplicationController
 
   # GET /restoration_activity_log_entries/new
   def new
-    @restoration_activity_log_entry = RestorationActivityLogEntry.new
+    @restoration_activity_log_entry = RestorationActivityLogEntry.new(dive_id: params[:dive_id])
     @nursery_tables = NurseryTable.all
   end
 
