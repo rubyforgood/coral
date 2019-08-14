@@ -38,7 +38,7 @@ end
   RestorationActivityLogEntry.create(
     cleaned: Faker::Boolean.boolean(0.8),
     percent_filled: Faker::Number.between(0, 100),
-    broken_corals: Faker::Number.between(0, 40),
+    bleached_corals: Faker::Number.between(0, 40),
     dead_corals: Faker::Number.between(0, 40),
     dive_id: Faker::Number.between(1, 15),
     nursery_table_id: Faker::Number.between(1, 10)
