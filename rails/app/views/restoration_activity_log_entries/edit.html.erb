@@ -1,6 +1,6 @@
-<h1>Editing Restoration Activity Log Entry</h1>
+<h1><%= t('.title') %></h1>
 
 <%= render 'form', restoration_activity_log_entry: @restoration_activity_log_entry %>
 
-<%= link_to 'Show', @restoration_activity_log_entry %> |
-<%= link_to 'Back', restoration_activity_log_entries_path %>
+<%= link_to t('defaults.actions.show'), @restoration_activity_log_entry %> |
+<%= link_to t('defaults.actions.back'), restoration_activity_log_entries_path %>

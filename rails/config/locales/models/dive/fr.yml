@@ -1,0 +1,26 @@
+en:
+  activerecord:
+    models:
+      dive:
+        zero: 'Plongées'
+        one: 'Se Plonger'
+        other: 'Plongées'
+    attributes:
+      dive:
+        i_have_been_responsible: "J'ai été responsable"
+        created_at: 'Commencé'
+        finished_at: 'Finie'
+        users: 'Les Plongeurs'
+  dive:
+    attributes:
+      i_have_been_responsible: "J'ai été responsable"
+      created_at: 'Commencé'
+      finished_at: 'Finie'
+      users: 'Les Plongeurs'
+  helpers:
+    label:
+      dive:
+        i_have_been_responsible: "J'ai été responsable"
+        created_at: 'Commencé'
+        finished_at: 'Finie'
+        users: 'Les Plongeurs'

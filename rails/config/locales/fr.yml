@@ -30,24 +30,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fr:
-  layouts:
-    application:
-      home: Page d'accueil
-      nursery_tables: Tables de pépinière
-      zones: Zones
-      restoration_activity_log: Journal d'activité de restauration
-      users: Utilisateurs
-      logout: Déconnexion
-  helpers:
-    label:
-      nursery_table:
-        capacity: "Capacité"
-        zone: "Zone"
-        name: "Prénom"
-    submit:
-      nursery_table:
-        create: "Créer u(ne) Table de Pépinière"
-        update: "Modifier ce(tte) Table de Pépinière"
   home:
     index:
       welcome: "Bonjour le monde"
@@ -63,30 +45,44 @@ fr:
   nursery_tables:
     index:
       title: "Tables de Pépinière"
-      capacity: "Capacité"
-      zone: "Zone"
-      name: "Prénom"
-      show: Montrer
-      edit: Modifier
-      destroy: Effacer
       new_nursery_table: "Nouvelle Table de Pépinière"
     new:
       title: "Nouvelle Table de Pépinière"
-      capacity: "Capacité"
-      zone: "Zone"
-      name: "Prénom"
-      show: Montrer
-      back: "Retour"
     edit:
       title: "Éditer la Table de Pépinière"
-      capacity: "Capacité"
-      zone: "Zone"
-      name: "Prénom"
-      show: Montrer
-      back: "Retour"
     show:
-      capacity: "Capacité"
-      zone: "Zone"
+    form:
+      error_header: "empêchent la sauvegarde de cette table de pépinière"
+  zones:
+    index:
+      title: "Zones"
+      new_zone: "Nouvelle Zone"
+    new:
+      title: "Nouvelle Zone"
+    edit:
+      title: "Éditer le Zone"
+    form:
+      error_header: "empêchent la sauvegarde de cette zone"
+  restoration_activity_log_entries:
+    index:
+      title: "Entrées du journal des activités de restauration"
+      percent_filled_message: "La table est remplie à %{percent_filled}%."
+      corals_stats_message: "Il y a %{bleached_corals} coraux fragmentés et %{dead_corals} coraux morts."
+      cleaned_message: "La table de la pépinière a-t-elle été nettoyée? %{table_cleaned}"
+      new: "Nouvelle Entrée du journal des activité de restauration"
+      :true: 'Oui'
+      :false: 'Non'
+    edit:
+      title: "Éditer l'Entrée du journal des activité de restauration"
+    new:
       name: "Prénom"
-      edit: "Modifier"
-      back: "Retour"
+      title: "Nouvelle Entrée du journal des activité de restauration"
+      pending_entries: "<span id='pending-entry-count'>%{count}</span> entrées de journal doivent être synchronisées avec le serveur."
+    show:
+      title: "Entrée du journal des activité de restauration"
+      for_table: "pour la table de la pépinière"
+      logged_on_dive: "enregistré en plongée"
+      at: "à"
+    form:
+      total_fragments: "Fragments totaux"
+      bleached_corals: 'Coraux blanchis'

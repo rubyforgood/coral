@@ -1,0 +1,35 @@
+fr:
+  activerecord:
+    models:
+      restoration_activity_log_entry:
+        zero: 'Entrées du journal des activités de restauration'
+        one: 'Entrée du journal des activités de restauration'
+        other: 'Entrées du journal des activités de restauration'
+    attributes:
+      restoration_activity_log_entry:
+        cleaned: 'Nettoyée'
+        percent_filled: '% rempli'
+        dive: 'Plongée'
+        bleached_corals: 'Coraux blanchis'
+        dead_corals: 'Coraux morts'
+        nursery_table: 'Table de Pépinière'
+        images: 'Images'
+  restoration_activity_log_entry:
+    attributes:
+      cleaned: 'Nettoyée'
+      percent_filled: '% rempli'
+      dive: 'Plongée'
+      bleached_corals: 'Coraux blanchis'
+      dead_corals: 'Coraux morts'
+      nursery_table: 'Table de Pépinière'
+      images: 'Images'
+  helpers:
+    label:
+      restoration_activity_log_entry:
+        cleaned: 'Nettoyée'
+        percent_filled: '% rempli'
+        dive: 'Plongée'
+        bleached_corals: 'Coraux blanchis'
+        dead_corals: 'Coraux morts'
+        nursery_table: 'Table de Pépinière'
+        images: 'Images'

@@ -1,0 +1,23 @@
+en:
+  activerecord:
+    models:
+      nursery_table:
+        zero: 'Nursery Tables'
+        one: 'Nursery Table'
+        other: 'Nursery Tables'
+    attributes:
+      nursery_table:
+        capacity: 'Capacity'
+        zone: 'Zone'
+        name: 'Name'
+  nursery_table:
+    attributes:
+      capacity: 'Capacity'
+      zone: 'Zone'
+      name: 'Name'
+  helpers:
+    label:
+      nursery_table:
+        capacity: 'Capacity'
+        zone: 'Zone'
+        name: 'Name'

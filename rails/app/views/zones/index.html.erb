@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Zones</h1>
+<h1><%= t('.title') %></h1>
 
 <table class="table">
   <thead>
     <tr class="row">
-      <th scope="col" class="col-9">Name</th>
+      <th scope="col" class="col-9"><%= t('zone.attributes.name') %></th>
       <th class="col-3"></th>
     </tr>
   </thead>
@@ -14,9 +14,9 @@
     <% @zones.each do |zone| %>
       <tr class="row">
         <td class="col-9"><%= zone.name %></td>
-        <td class="col-1"><%= link_to 'Show', zone %></td>
-        <td class="col-1"><%= link_to 'Edit', edit_zone_path(zone) %></td>
-        <td class="col-1"><%= link_to 'Destroy', zone, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="col-1"><%= link_to t('defaults.actions.show'), zone %></td>
+        <td class="col-1"><%= link_to t('defaults.actions.edit'), edit_zone_path(zone) %></td>
+        <td class="col-1"><%= link_to t('defaults.actions.destroy'), zone, method: :delete, data: { confirm: t('defaults.actions.are_you_sure') } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Zone', new_zone_path %>
+<%= link_to t('.new_zone'), new_zone_path %>
