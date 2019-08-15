@@ -30,14 +30,21 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  layouts:
-    application:
-      home: Home
-      nursery_tables: Nursery Tables
-      zones: Zones
-      restoration_activity_log: Restoration Activity Log
-      users: Users
-      logout: Logout
+  helpers:
+    label:
+      nursery_table:
+        capacity: "Capacity"
+        zone: "Zone"
+        name: "Name"
+      zone:
+        name: "Name"
+    submit:
+      nursery_table:
+        create: "Create Nursery Table"
+        update: "Modify Nursery Table"
+      zone:
+        create: "Create Zone"
+        update: "Modify Zone"
   home:
     index:
       welcome: "hello"
@@ -51,13 +58,6 @@ en:
       finished_at_log_message: "Finished at %{finished_at}."
       finish_button: "Finish dive"
   nursery_tables:
-    helpers:
-      label:
-        item:
-          capacity: "Capacity"
-          zone: "Zone"
-          name: "Name"
-          nursery_table: "Nursery Tables"
     index:
       title: "Nursery Tables"
       capacity: "Capacity"
@@ -87,7 +87,38 @@ en:
       name: "Name"
       edit: "Edit"
       back: "Back"
+  zones:
+    index:
+      title: "Zones"
+      name: "Name"
+      show: "Show"
+      edit: "Edit"
+      destroy: "Destroy"
+      are_you_sure: "Are you sure?"
+      new_zone: "New Zone"
+    new:
+      title: "New Zone"
+      name: "Name"
+      show: "Show"
+      back: "Back"
+    edit:
+      title: "Editing Zone"
+      name: "Name"
+      show: "Show"
+      back: "Back"
+    show:
+      name: "Name"
+      edit: "Edit"
+      back: "Back"
+    form:
+      error: "error"
+      error_header: "prohibited this zone from being saved"
   restoration_activity_log_entries:
+    index:
+      title: "Restoration Activity Log Entries"
+      percent_filled_message: "The table is %{percent_filled}% full."
+      corals_stats_message: "There are %{broken_corals} fragmented corals and %{dead_corals} dead corals."
+      cleaned_message: "Was the nursery table cleaned? %{table_cleaned}"
     new:
       pending_entries: "<span id='pending-entry-count'>%{count}</span> log entries need to be synced to the server."
 

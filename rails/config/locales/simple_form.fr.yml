@@ -18,6 +18,8 @@ fr:
         capacity: "Capacité"
         zone: Zone
         name: "Prénom"
+      zone:
+        name: "Prénom"
       user:
         new:
           email: 'E-mail pour vous connecter.'

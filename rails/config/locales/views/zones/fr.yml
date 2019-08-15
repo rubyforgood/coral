@@ -30,6 +30,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fr:
+  layouts:
+    application:
+      home: Page d'accueil
+      nursery_tables: Tables de pépinière
+      zones: Zones
+      restoration_activity_log: Journal d'activité de restauration
+      users: Utilisateurs
+      logout: Déconnexion
   helpers:
     label:
       nursery_table:

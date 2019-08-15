@@ -1,7 +1,7 @@
 <%= form_with(model: zone, local: true) do |form| %>
   <% if zone.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(zone.errors.count, "error") %> prohibited this zone from being saved:</h2>
+      <h2><%= pluralize(zone.errors.count, t('.error')) %> <%= t('.error_header') %>:</h2>
 
       <ul>
       <% zone.errors.full_messages.each do |message| %>

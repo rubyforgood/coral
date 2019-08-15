@@ -1,0 +1,9 @@
+en:
+  layouts:
+    application:
+      home: Home
+      nursery_tables: Nursery Tables
+      zones: Zones
+      restoration_activity_log: Restoration Activity Log
+      users: Users
+      logout: Logout

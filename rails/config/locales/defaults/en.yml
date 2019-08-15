@@ -1,0 +1,12 @@
+en:
+  defaults:
+    :true: 'Yes'
+    :false: 'No'
+    :yes: 'Yes'
+    :no: 'No'
+    show: 'Show'
+    edit: 'Edit'
+    destroy: 'Destroy'
+    back: 'Back'
+    are_you_sure: 'Are you sure?'
+    error: 'Error'
