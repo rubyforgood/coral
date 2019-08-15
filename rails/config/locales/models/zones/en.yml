@@ -1,0 +1,16 @@
+en:
+  activerecord:
+    models:
+      zone:
+        zero: 'Zones'
+        one: 'Zone'
+        other: 'Zones'
+    attributes:
+      zone:
+        name: 'Name'
+  zone:
+    attributes:
+      name: 'Name'
+  helpers:
+    label:
+      name: 'Name'

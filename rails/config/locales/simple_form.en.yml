@@ -10,6 +10,13 @@ en:
       # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "Please review the problems below:"
+    labels:
+      dive:
+        new:
+          i_have_been_responsible: "I have been responsible"
+          created_at: "Started"
+          finished_at: "Finished"
+          users: "Divers"
     # Examples
     # labels:
     #   defaults:

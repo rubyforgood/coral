@@ -11,12 +11,12 @@
             <%= t('.percent_filled_message', percent_filled: entry.percent_filled) %>
             <%= t('.corals_stats_message', broken_corals: entry.broken_corals, dead_corals: entry.dead_corals) %>
           </p>
-          <p class="card-text text-muted"><%= t('.cleaned_message', table_cleaned: entry.cleaned) %></p>
+          <p class="card-text text-muted"><%= t('.cleaned_message', table_cleaned: t(entry.cleaned)) %></p>
         </div>
         <div class="card-footer restoration-index">
-          <%= link_to t('.show'), restoration_activity_log_entry_path(entry), class: "btn btn-primary" %>
-          <%= link_to t('.edit'), edit_restoration_activity_log_entry_path(entry), class: "btn btn-primary" %>
-          <%= link_to t('.destroy'), restoration_activity_log_entry_path(entry), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+          <%= link_to t('defaults.actions.show'), restoration_activity_log_entry_path(entry), class: "btn btn-primary" %>
+          <%= link_to t('defaults.actions.edit'), edit_restoration_activity_log_entry_path(entry), class: "btn btn-primary" %>
+          <%= link_to t('defaults.actions.destroy'), restoration_activity_log_entry_path(entry), method: :delete, data: { confirm: t('defaults.actions.are_you_sure') }, class: "btn btn-primary" %>
         </div>
       </div>
     </div>

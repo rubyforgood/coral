@@ -1,0 +1,26 @@
+en:
+  activerecord:
+    models:
+      dive:
+        zero: 'Dives'
+        one: 'Dive'
+        other: 'Dives'
+    attributes:
+      dive:
+        i_have_been_responsible: 'I have been responsible'
+        created_at: 'Started'
+        finished_at: 'Finished'
+        users: 'Divers'
+  dive:
+    attributes:
+      i_have_been_responsible: 'I have been responsible'
+      created_at: 'Started'
+      finished_at: 'Finished'
+      users: 'Divers'
+  helpers:
+    label:
+      dive:
+        i_have_been_responsible: 'I have been responsible'
+        created_at: 'Started'
+        finished_at: 'Finished'
+        users: 'Divers'

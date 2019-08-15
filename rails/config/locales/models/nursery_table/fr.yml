@@ -1,0 +1,23 @@
+fr:
+  activerecord:
+    models:
+      nursery_table:
+        zero: 'Tables de Pépinière'
+        one: 'Table de Pépinière'
+        other: 'Tables de Pépinière'
+    attributes:
+      nursery_table:
+        capacity: "Capacité"
+        zone: "Zone"
+        name: "Prénom"
+  nursery_table:
+    attributes:
+      capacity: 'Capacité'
+      zone: 'Zone'
+      name: 'Prénom'
+  helpers:
+    label:
+      nursery_table:
+        capacity: 'Capacité'
+        zone: 'Zone'
+        name: 'Prénom'

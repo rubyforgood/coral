@@ -3,9 +3,15 @@ fr:
   :false: 'Non'
   :yes: 'Oui'
   :no: 'Non'
-  show: 'Montrer'
-  edit: 'Modifier'
-  destroy: 'Effacer'
-  back: 'Retour'
-  are_you_sure: 'Êtes-vous sûr?'
-  error: 'Erreur'
+  defaults:
+    actions:
+      show: 'Montrer'
+      edit: 'Modifier'
+      destroy: 'Effacer'
+      back: 'Retour'
+      are_you_sure: 'Êtes-vous sûr?'
+    error: 'Erreur'
+  helpers:
+    submit:
+      create: "Créer u(ne) %{model}"
+      update: "Modifier ce(tte) %{model}"

@@ -30,21 +30,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fr:
-  helpers:
-    label:
-      nursery_table:
-        capacity: "Capacité"
-        zone: "Zone"
-        name: "Prénom"
-      zone:
-        name: "Prénom"
-    submit:
-      nursery_table:
-        create: "Créer u(ne) Table de Pépinière"
-        update: "Modifier ce(tte) Table de Pépinière"
-      zone:
-        create: "Créer u(ne) Zone"
-        update: "Modifier ce(tte) Zone"
   home:
     index:
       welcome: "Bonjour le monde"
@@ -60,37 +45,22 @@ fr:
   nursery_tables:
     index:
       title: "Tables de Pépinière"
-      capacity: "Capacité"
-      zone: "Zone"
-      name: "Prénom"
       new_nursery_table: "Nouvelle Table de Pépinière"
     new:
       title: "Nouvelle Table de Pépinière"
-      capacity: "Capacité"
-      zone: "Zone"
-      name: "Prénom"
     edit:
       title: "Éditer la Table de Pépinière"
-      capacity: "Capacité"
-      zone: "Zone"
-      name: "Prénom"
     show:
-      capacity: "Capacité"
-      zone: "Zone"
-      name: "Prénom"
+    form:
+      error_header: "empêchent la sauvegarde de cette table de pépinière"
   zones:
     index:
       title: "Zones"
-      name: "Prénom"
       new_zone: "Nouvelle Zone"
     new:
       title: "Nouvelle Zone"
-      name: "Prénom"
     edit:
       title: "Éditer le Zone"
-      name: "Prénom"
-    show:
-      name: "Prénom"
     form:
       error_header: "empêchent la sauvegarde de cette zone"
   restoration_activity_log_entries:
@@ -101,7 +71,16 @@ fr:
       cleaned_message: "La table de la pépinière a-t-elle été nettoyée? %{table_cleaned}"
       :true: 'Oui'
       :false: 'Non'
+    edit:
+      title: "Éditer l'Entrée du journal des activité de restauration"
     new:
+      name: "Prénom"
+      title: "Nouvelle Entrée du journal des activité de restauration"
       pending_entries: "<span id='pending-entry-count'>%{count}</span> entrées de journal doivent être synchronisées avec le serveur."
+    show:
+      title: "Entrée du journal des activité de restauration"
+      for_table: "pour la table de la pépinière"
+      logged_on_dive: "enregistré en plongée"
+      at: "à"
     form:
       total_fragments: "Total fragments"

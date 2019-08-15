@@ -5,9 +5,9 @@
 <table class="table">
   <thead>
     <tr class="row">
-      <th scope="col" class="col-3"><%= t('.capacity') %></th>
-      <th scope="col" class="col-3"><%= t('.zone') %></th>
-      <th scope="col" class="col-3"><%= t('.name') %></th>
+      <th scope="col" class="col-3"><%= t('nursery_table.attributes.capacity') %></th>
+      <th scope="col" class="col-3"><%= t('nursery_table.attributes.zone') %></th>
+      <th scope="col" class="col-3"><%= t('nursery_table.attributes.name') %></th>
       <th class="col-3"></th>
     </tr>
   </thead>
@@ -18,9 +18,9 @@
         <td class="col-3"><%= nursery_table.capacity %></td>
         <td class="col-3"><%= nursery_table.zone.name %></td>
         <td class="col-3"><%= nursery_table.name %></td>
-        <td class="col-1"><%= link_to t('.show'), nursery_table %></td>
-        <td class="col-1"><%= link_to t('.edit'), edit_nursery_table_path(nursery_table) %></td>
-        <td class="col-1"><%= link_to t('.destroy'), nursery_table, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="col-1"><%= link_to t('defaults.actions.show'), nursery_table %></td>
+        <td class="col-1"><%= link_to t('defaults.actions.edit'), edit_nursery_table_path(nursery_table) %></td>
+        <td class="col-1"><%= link_to t('defaults.actions.destroy'), nursery_table, method: :delete, data: { confirm: t('defaults.actions.are_you_sure') } %></td>
       </tr>
     <% end %>
   </tbody>
