@@ -66,8 +66,9 @@ en:
     index:
       title: "Restoration Activity Log Entries"
       percent_filled_message: "The table is %{percent_filled}% full."
-      corals_stats_message: "There are %{broken_corals} fragmented corals and %{dead_corals} dead corals."
+      corals_stats_message: "There are %{bleached_corals} fragmented corals and %{dead_corals} dead corals."
       cleaned_message: "Was the nursery table cleaned? %{table_cleaned}"
+      new: "New Restoration Activity Log Entry"
     edit:
       title: "Edit Restoration Activity Log Entry"
     new:
@@ -79,4 +80,6 @@ en:
       for_table: "for nursery table"
       logged_on_dive: "logged on dive"
       at: "at"
+    form:
+      bleached_corals: 'Bleached Corals'
 

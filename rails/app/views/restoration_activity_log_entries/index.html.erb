@@ -9,7 +9,7 @@
           <h6 class="card-subtitle mb-2 text-muted"><%= l(entry.created_at) %></h6>
           <p class="card-text">
             <%= t('.percent_filled_message', percent_filled: entry.percent_filled) %>
-            <%= t('.corals_stats_message', broken_corals: entry.broken_corals, dead_corals: entry.dead_corals) %>
+            <%= t('.corals_stats_message', bleached_corals: entry.broken_corals, dead_corals: entry.dead_corals) %>
           </p>
           <p class="card-text text-muted"><%= t('.cleaned_message', table_cleaned: t(entry.cleaned)) %></p>
         </div>
@@ -25,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Restoration Activity Log Entry', new_restoration_activity_log_entry_path %>
+<%= link_to t('.new'), new_restoration_activity_log_entry_path %>
