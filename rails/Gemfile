@@ -49,9 +49,6 @@ group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "dotenv-rails", "~> 2.7"
   gem "factory_bot_rails"
-  gem "selenium-webdriver"
-  gem "teaspoon"
-  gem "teaspoon-mocha"
   gem "pry"
 end
 
@@ -77,14 +74,13 @@ gem "devise", "~> 4.6"
 gem "devise-i18n"
 
 # Use bootstrap gem for styling
-gem 'bootstrap', '~> 4.3.1'
+gem "bootstrap", "~> 4.3.1"
 # Use sprockets to support bootstrap
-gem 'sprockets-rails', '>= 2.3.2'
+gem "sprockets-rails", ">= 2.3.2"
 # Use jQuery to support bootstrap
-gem 'jquery-rails'
+gem "jquery-rails"
 # get service-workers to play nicely with rails
-gem 'serviceworker-rails', '~> 0.6'
-gem 'rails-i18n'
-
+gem "rails-i18n"
+gem "serviceworker-rails", "~> 0.6"
 
 gem "faker", "~> 1.9"
