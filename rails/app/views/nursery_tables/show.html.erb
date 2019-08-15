@@ -24,7 +24,7 @@
 
 
 
-  <% @nursery_table.restoration_activity_log_entries.each do |entry| %>
+  <% @nursery_restoration_activity.each do |entry| %>
     <br>
     <div class="col-4">
       <div class="card text-center">
@@ -42,9 +42,8 @@
     </div>
   <% end %>
 
-  <%= will_paginate @nursery_table.restoration_activity_log_entries.paginate(page: 1, per_page: 1), next_label: "Newer", :page_links => false %>
-
 </p>
+<%= will_paginate @nursery_restoration_activity %>
 
 
 <%= link_to t('.edit'), edit_nursery_table_path(@nursery_table) %> |
