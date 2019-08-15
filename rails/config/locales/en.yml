@@ -50,6 +50,7 @@ en:
       title: "On dive #%{dive_id}"
       finished_at_log_message: "Finished at %{finished_at}."
       finish_button: "Finish dive"
+      log_restoration: Log Restoration Activity
   nursery_tables:
     helpers:
       label:

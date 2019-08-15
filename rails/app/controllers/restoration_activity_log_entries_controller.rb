@@ -14,7 +14,7 @@ class RestorationActivityLogEntriesController < ApplicationController
 
   # GET /restoration_activity_log_entries/new
   def new
-    @restoration_activity_log_entry = RestorationActivityLogEntry.new
+    @restoration_activity_log_entry = RestorationActivityLogEntry.new(dive_id: params[:dive_id])
     @nursery_tables = NurseryTable.all
   end
 
@@ -29,7 +29,7 @@ class RestorationActivityLogEntriesController < ApplicationController
 
     respond_to do |format|
       if @restoration_activity_log_entry.save
-        format.html { redirect_to @restoration_activity_log_entry, notice: "Restoration activity log entry was successfully created." }
+        format.html { redirect_to redirect_url(@restoration_activity_log_entry), notice: "Restoration activity log entry was successfully created." }
         format.json { render :show, status: :created, location: @restoration_activity_log_entry }
       else
         @nursery_tables = NurseryTable.all
@@ -74,5 +74,13 @@ class RestorationActivityLogEntriesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def restoration_activity_log_entry_params
     params.require(:restoration_activity_log_entry).permit(:cleaned, :percent_filled, :bleached_corals, :dead_corals, :dive_id, :nursery_table_id, images: [])
+  end
+
+  def redirect_url(entry)
+    if entry.dive_id
+      dive_path(entry.dive_id)
+    else
+      @restoration_activity_log_entry
+    end
   end
 end

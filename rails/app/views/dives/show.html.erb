@@ -3,5 +3,18 @@
 <%- if dive.finished? %>
   <%=t '.finished_at_log_message', finished_at: dive.finished_at.to_formatted_s(:db) %>
 <%- else %>
-  <%= button_to t('.finish_button'), [:finish, dive], method: :post %>
+
+
+  <div class='card bg-light'>
+    <p class='card-body'>
+      We should probably show what we can of all recorded activities during the dive.
+      <br>
+      Extracting things from <tt>indexdb</tt> <em>could</em> be something of an issue if we're looking for any great depth of detail here.
+    </p>
+  </div>
+
+  <%= link_to t('.log_restoration'), new_dive_restoration_activity_log_entry_path(dive), class: 'btn btn-primary' %>
+
+
+  <%= button_to t('.finish_button'), [:finish, dive], method: :post, class: 'btn btn-primary' %>
 <%- end %>
