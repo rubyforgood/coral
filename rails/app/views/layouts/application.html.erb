@@ -46,7 +46,7 @@
               <a class="nav-link" href="<%= users_path %>"><%= t('.users') %></a>
             </li>
             <li class="nav-item">
-              <%= link_to t('.logout'), destroy_user_session_path, method: :delete, :class =>"nav-link" %>
+              <%= link_to t('.logout'), destroy_user_session_path, method: :delete, data: { confirm: 'Please confirm you wish to log out.' }, :class =>"nav-link" %>
             </li>
           <% end %>
         </nav>
