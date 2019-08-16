@@ -1,6 +1,6 @@
-<h1>Editing Zone</h1>
+<h1><%= t('.title') %></h1>
 
 <%= render 'form', zone: @zone %>
 
-<%= link_to 'Show', @zone %> |
-<%= link_to 'Back', zones_path %>
+<%= link_to t('defaults.actions.show'), @zone %> |
+<%= link_to t('defaults.actions.back'), zones_path %>

@@ -56,9 +56,9 @@ To run the app and related servers in docker, do the following:
 
 1. Be sure `docker` and `docker-compose` are installed.
 2. Create `.docker-env/development/database` with environment variables `POSTGRES_DB`, `POSTGRES_USER`, and `POSTGRES_PASS`. Set `postgres` as the value of all three if you're not sure what to use.
-3. Create `.docker-env/development/web` with environment variable `DATABASE_HOST=postgres`.
-4. Run `docker run it minio/minio server /data`, making note of `AccessKey` and `SecretKey`. Create `.docker-env/development/storage` with environment variables `MINIO_ACCESS_KEY` and `MINIO_SECRET_KEY` using the corresponding values produced by the previous command.
-5. Setup the database: `docker run --rm web bundle exec rake db:setup`
+3. Create `.docker-env/development/web` with environment variable `DATABASE_HOST=database`.
+4. Run `docker run -it minio/minio server /data`, making note of `AccessKey` and `SecretKey`. Create `.docker-env/development/storage` with environment variables `MINIO_ACCESS_KEY` and `MINIO_SECRET_KEY` using the corresponding values produced by the previous command.
+5. Setup the database: `docker-compose run --rm web bundle exec rake db:setup`
 6. Run the tests: `docker run --rm web bundle exec rails spec`
 7. Run `docker-compose up` to build and start everything.
 8. View the running app in the browser at [http://localhost:3000](http://localhost:3000)

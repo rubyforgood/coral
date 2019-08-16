@@ -23,6 +23,7 @@ function onInstall(event) {
 }
 
 function onActivate(event) {
+  console.log("different");
   console.log('[Serviceworker]', "Activating!", event);
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
@@ -73,7 +74,7 @@ function onFetch(event) {
 }
 
 function onMessage(event) {
-  console.log('service worker received:', event.data);
+  console.log('service worker message', event.data);
   if (event.data.type === 'fetchForms') {
     event.waitUntil(
       caches.open(CACHE_NAME)

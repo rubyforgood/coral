@@ -1,4 +1,4 @@
-<h1>Restoration Activity Log Entries</h1>
+<h1><%= t('.title') %></h1>
 
 <section class="row justify-content-center restoration-index">
   <% @restoration_activity_log_entries.each do |entry| %>
@@ -6,14 +6,17 @@
       <div class="card text-center">
         <div class="card-body restoration-index">
           <h5 class="card-title"><%= entry.nursery_table.name %></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= entry.created_at %></h6>
-          <p class="card-text">The table is <%= entry.percent_filled %> percent full. There are <%= entry.broken_corals %> fragmented corals and <%= entry.dead_corals %> dead corals.</p>
-          <p class="card-text text-muted">Was the nursery table cleaned? <%= entry.cleaned %></p>
+          <h6 class="card-subtitle mb-2 text-muted"><%= l(entry.created_at) %></h6>
+          <p class="card-text">
+            <%= t('.percent_filled_message', percent_filled: entry.percent_filled) %>
+            <%= t('.corals_stats_message', bleached_corals: entry.bleached_corals, dead_corals: entry.dead_corals) %>
+          </p>
+          <p class="card-text text-muted"><%= t('.cleaned_message', table_cleaned: t(entry.cleaned)) %></p>
         </div>
         <div class="card-footer restoration-index">
-          <a href="#" class="btn btn-primary">Show</a>
-          <a href="#" class="btn btn-primary">Edit</a>
-          <a href="#" class="btn btn-primary">Destroy</a>
+          <%= link_to t('defaults.actions.show'), restoration_activity_log_entry_path(entry), class: "btn btn-primary" %>
+          <%= link_to t('defaults.actions.edit'), edit_restoration_activity_log_entry_path(entry), class: "btn btn-primary" %>
+          <%= link_to t('defaults.actions.destroy'), restoration_activity_log_entry_path(entry), method: :delete, data: { confirm: t('defaults.actions.are_you_sure') }, class: "btn btn-primary" %>
         </div>
       </div>
     </div>
@@ -22,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Restoration Activity Log Entry', new_restoration_activity_log_entry_path %>
+<%= link_to t('.new'), new_restoration_activity_log_entry_path %>

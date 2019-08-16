@@ -1,0 +1,17 @@
+fr:
+  :true: 'Oui'
+  :false: 'Non'
+  :yes: 'Oui'
+  :no: 'Non'
+  defaults:
+    actions:
+      show: 'Montrer'
+      edit: 'Modifier'
+      destroy: 'Effacer'
+      back: 'Retour'
+      are_you_sure: 'Êtes-vous sûr?'
+    error: 'Erreur'
+  helpers:
+    submit:
+      create: "Créer u(ne) %{model}"
+      update: "Modifier ce(tte) %{model}"

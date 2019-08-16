@@ -8,18 +8,53 @@ AllCops:
     - 'rails/node_modules/**/*'
     - 'rails/vendor/**/*'
 
+Lint/AmbiguousRegexpLiteral:
+  Exclude:
+    - rails/config/initializers/inflections.rb
+
+
+Lint/HandleExceptions:
+  Exclude:
+    - rails/Rakefile
+
+Metrics/AbcSize:
+  Max: 20
+  Exclude:
+    - 'rails/db/migrate/**.active_storage.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'rails/spec/**/*.rb'
+    - 'rails/db/schema.rb'
+    - 'rails/config/**/*.rb'
+
 # URISchemes: http, https
 Metrics/LineLength:
-  Max: 130
+  Max: 160
+  Exclude:
+    - 'rails/config/initializers/simple_form_bootstrap.rb'
+
+Metrics/MethodLength:
+  Max: 18
+  Exclude:
+    - 'rails/db/migrate/*.rb'
+
+Style/AccessModifierDeclarations:
+  Enabled: false
 
 Style/Documentation:
   Exclude:
     - 'rails/spec/**/*'
     - 'rails/test/**/*'
+    - 'rails/app/controllers/**/*'
     - 'rails/app/helpers/application_helper.rb'
     - 'rails/app/mailers/application_mailer.rb'
     - 'rails/app/models/application_record.rb'
     - 'rails/config/application.rb'
+    - 'rails/db/**/*'
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
 
 Style/FrozenStringLiteralComment:
   Enabled: false

@@ -1,8 +1,7 @@
 class CreateRestorationActivityLogEntries < ActiveRecord::Migration[5.2]
   def change
     create_table :restoration_activity_log_entries do |t|
-
-      t.boolean :cleaned 
+      t.boolean :cleaned
       t.integer :percent_filled
       t.integer :broken_corals
       t.integer :dead_corals

@@ -1,0 +1,35 @@
+en:
+  activerecord:
+    models:
+      restoration_activity_log_entry:
+        zero: 'Restoration Activity Log Entries'
+        one: 'Restoration Activity Log Entry'
+        other: 'Restoration Activity Log Entries'
+    attributes:
+      restoration_activity_log_entry:
+        cleaned: 'Cleaned'
+        percent_filled: '% Filled'
+        dive: 'Dive'
+        bleached_corals: 'Bleached Corals'
+        dead_corals: 'Dead Corals'
+        nursery_table: 'Nursery Table'
+        images: 'Images'
+  restoration_activity_log_entry:
+    attributes:
+      cleaned: 'Cleaned'
+      percent_filled: '% Filled'
+      dive: 'Dive'
+      bleached_corals: 'Bleached Corals'
+      dead_corals: 'Dead Corals'
+      nursery_table: 'Nursery Table'
+      images: 'Images'
+  helpers:
+    label:
+      restoration_activity_log_entry:
+        cleaned: 'Cleaned'
+        percent_filled: '% Filled'
+        dive: 'Dive'
+        bleached_corals: 'Bleached Corals'
+        dead_corals: 'Dead Corals'
+        nursery_table: 'Nursery Table'
+        images: 'Images'

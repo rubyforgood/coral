@@ -18,6 +18,7 @@ services:
     depends_on:
       - database
       - redis
+      - webpacker_dev
     build: rails
     ports:
       - "3000:3000"
@@ -66,7 +67,7 @@ services:
     logging:
       driver: none
     ports:
-      - "5900:5900"
+      - "5971:5900"
     networks:
       - coral_net
 

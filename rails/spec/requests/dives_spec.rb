@@ -1,10 +1,10 @@
-require 'rails_helper'
-require 'support/authentication'
+require "rails_helper"
+require "support/authentication"
 
 RSpec.describe "Dives", type: :request do
-  include_context "logged in" 
+  include_context "logged in"
   describe "GET show" do
-    let!(:dive) { FactoryBot.create(:dive) } 
+    let!(:dive) { FactoryBot.create(:dive) }
 
     it "renders the dive hub" do
       get "/dives/#{dive.id}"
@@ -15,7 +15,7 @@ RSpec.describe "Dives", type: :request do
 
   describe "GET new" do
     it "succeeds" do
-      get '/dives/new'
+      get "/dives/new"
 
       expect(response).to be_successful
     end
@@ -24,8 +24,8 @@ RSpec.describe "Dives", type: :request do
   describe "POST create" do
     context "given a complete checklist" do
       subject do
-        -> {
-          post '/dives', params: { dive: { i_have_been_responsible: 1 } }
+        lambda {
+          post "/dives", params: { dive: { i_have_been_responsible: 1 } }
         }
       end
 
@@ -44,16 +44,16 @@ RSpec.describe "Dives", type: :request do
 
     context "given an incomplete checklist" do
       subject do
-        -> {
-          post '/dives', params: { dive: { i_have_been_responsible: nil } }
+        lambda {
+          post "/dives", params: { dive: { i_have_been_responsible: nil } }
         }
       end
 
       it "does not create the dive" do
-        expect { subject.call }.not_to change { Dive.count }
+        expect { subject.call }.not_to change(Dive, :count)
       end
 
-      it 'renders an error page' do
+      it "renders an error page" do
         subject.call
         expect(response.body).to match(/can&#39;t be blank/)
       end
@@ -61,10 +61,10 @@ RSpec.describe "Dives", type: :request do
   end
 
   describe "POST finish" do
-    let!(:dive) { FactoryBot.create(:dive) } 
+    let!(:dive) { FactoryBot.create(:dive) }
 
     subject do
-      -> {
+      lambda {
         post "/dives/#{dive.id}/finish"
       }
     end
@@ -79,7 +79,7 @@ RSpec.describe "Dives", type: :request do
 
     it "marks the dive as finished" do
       subject.call
-      
+
       dive.reload
       expect(dive.finished_at).not_to be_nil
     end
