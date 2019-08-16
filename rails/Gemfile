@@ -86,4 +86,4 @@ gem "serviceworker-rails", "~> 0.6"
 gem "faker", "~> 1.9"
 
 # Used for pagination
-gem 'will_paginate', '~> 3.1.0'
+gem "will_paginate", "~> 3.1.0"

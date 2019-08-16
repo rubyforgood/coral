@@ -10,7 +10,7 @@ class NurseryTablesController < ApplicationController
   # GET /nursery_tables/1
   # GET /nursery_tables/1.json
   def show
-    @nursery_restoration_activity = @nursery_table.restoration_activity_log_entries.paginate(:page => params[:page], :per_page => 1).order('id DESC')
+    @nursery_restoration_activity = @nursery_table.restoration_activity_log_entries.paginate(page: params[:page], per_page: 1).order("id DESC")
   end
 
   # GET /nursery_tables/new
