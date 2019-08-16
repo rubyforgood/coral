@@ -2,13 +2,29 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :nursery_table_id, collection:  @nursery_tables %>
-    <%= f.input :cleaned %>
-    <%= f.input :percent_filled %>
-    <%= f.input :bleached_corals %>
-    <%= f.input :dead_corals %>
-    <%= f.input :dive_id, as: 'hidden' %>
+  <div class="form-inputs row">
+    <div class="col">
+      <%= f.input :nursery_table_id, collection: @nursery_tables %>
+    </div>
+  </div>
+  <div class="form-inputs row">
+    <div class="col-6 col-sm-12">
+      <%= f.input :cleaned %>
+    </div>
+    <div class="col-6 col-sm-12">
+      <%= f.input :percent_filled %>
+    </div>
+  </div>
+  <div class="form-inputs row">
+    <div class="col-6 col-sm-12">
+      <%= f.input :bleached_corals %>
+    </div>
+    <div class="col-6 col-sm-12">
+      <%= f.input :dead_corals %>
+    </div>
+    <div class="col">
+      <%= f.input :dive_id, as: 'hidden' %>
+    </div>
   </div>
 
   <div class="form-actions">
