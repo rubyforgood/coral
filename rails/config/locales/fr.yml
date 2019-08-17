@@ -42,6 +42,7 @@ fr:
       title: "En plongée #%{dive_id}"
       finished_at_log_message: "Terminé à %{finished_at}."
       finish_button: "Terminer la plongée"
+      log_restoration: "Enregistrer une activité de restauration"
   nursery_tables:
     index:
       title: "Tables de Pépinière"

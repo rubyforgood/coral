@@ -49,6 +49,7 @@
               <%= link_to t('.logout'), destroy_user_session_path, method: :delete, data: { confirm: 'Please confirm you wish to log out.' }, :class =>"nav-link" %>
             </li>
           <% end %>
+          <%= render 'shared/locale_links' %>
         </nav>
       </header>
     </div> <%# End navbar %>
