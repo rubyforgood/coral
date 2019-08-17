@@ -15,5 +15,36 @@
   <%= @nursery_table.name %>
 </p>
 
+<p>
+  Recent restoration activities:
+</p>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Date Performed</th>
+        <th scope="col">Cleaned?</th>
+        <th scope="col">Percent full</th>
+        <th scope="col">Bleached</th>
+        <th scope="col">Dead</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @nursery_table.restoration_activity_log_entries.each do |entry| %>
+        <tr>
+            <td><%= entry.created_at.to_date %></td>
+              <% if entry.cleaned == true %>
+            <td><%= fa_icon "check-square", class: "text-success" %></td>
+              <% else %>
+            <td><%= fa_icon "times-circle", class: "text-danger" %></td>
+              <% end %>
+            <td><%= entry.percent_filled %>% </td>
+            <td><%= entry.bleached_corals %></td>
+            <td><%= entry.dead_corals %></td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
+
 <%= link_to t('defaults.actions.edit'), edit_nursery_table_path(@nursery_table) %> |
 <%= link_to t('defaults.actions.back'), nursery_tables_path %>

@@ -5,5 +5,6 @@
 # lists when filling out log entries.
 class NurseryTable < ApplicationRecord
   belongs_to :zone
+  has_many :restoration_activity_log_entries
   validates :capacity, numericality: { greater_than_or_equal_to: 1 }
 end
