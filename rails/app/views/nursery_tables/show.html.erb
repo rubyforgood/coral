@@ -30,7 +30,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @nursery_table.restoration_activity_log_entries.each do |entry| %>
+      <% @nursery_table.restoration_activity_log_entries.order('id DESC').each do |entry| %>
         <tr>
             <td><%= entry.created_at.to_date %></td>
               <% if entry.cleaned == true %>
