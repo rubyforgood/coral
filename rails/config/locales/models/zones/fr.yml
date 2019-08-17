@@ -1,0 +1,17 @@
+fr:
+  activerecord:
+    models:
+      zone:
+        zero: 'Zones'
+        one: 'Zone'
+        other: 'Zones'
+    attributes:
+      zone:
+        name: 'Prénom'
+  zone:
+    attributes:
+      name: 'Prénom'
+  helpers:
+    label:
+      zone:
+        name: 'Prénom'

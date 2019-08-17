@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_190_727_153_914) do
+ActiveRecord::Schema.define(version: 20_190_727_153_915) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20_190_727_153_914) do
   create_table "restoration_activity_log_entries", force: :cascade do |t|
     t.boolean "cleaned"
     t.integer "percent_filled"
-    t.integer "broken_corals"
+    t.integer "bleached_corals"
     t.integer "dead_corals"
     t.integer "dive_id"
     t.integer "nursery_table_id"

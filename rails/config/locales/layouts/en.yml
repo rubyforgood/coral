@@ -1,0 +1,10 @@
+en:
+  layouts:
+    application:
+      home: Home
+      nursery_tables: Nursery Tables
+      zones: Zones
+      restoration_activity_log: Restoration Activity Log
+      new_dive: New Dive
+      users: Users
+      logout: Logout

@@ -1,0 +1,17 @@
+en:
+  :true: 'Yes'
+  :false: 'No'
+  :yes: 'Yes'
+  :no: 'No'
+  defaults:
+    actions:
+      show: 'Show'
+      edit: 'Edit'
+      destroy: 'Destroy'
+      back: 'Back'
+      are_you_sure: 'Are you sure?'
+    error: 'Error'
+  helpers:
+    submit:
+      create: "Create %{model}"
+      update: "Modify %{model}"

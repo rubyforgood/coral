@@ -1,41 +1,41 @@
 <p id="notice"><%= notice %></p>
 
+<header>
+  <h1>
+    <small><%= t('.title') %> <%= t('.for_table') %>:</small><br/>
+    <%= @restoration_activity_log_entry.nursery_table.name %><br/>
+    <small><%= t('.logged_on_dive') %>
+    <%= @restoration_activity_log_entry.dive_id %> <%= t('.at') %>
+    <%= l(@restoration_activity_log_entry.created_at) %></small>
+  </h1>
+<header>
+
 <p>
-  <strong>Cleaned:</strong>
-  <%= @restoration_activity_log_entry.cleaned %>
+  <strong><%= t('restoration_activity_log_entry.attributes.cleaned') %>:</strong>
+  <%= t(@restoration_activity_log_entry.cleaned) %>
 </p>
 
 <p>
-  <strong>Percent filled:</strong>
-  <%= @restoration_activity_log_entry.percent_filled %>
+  <strong><%= t('restoration_activity_log_entry.attributes.percent_filled') %>:</strong>
+  <%= @restoration_activity_log_entry.percent_filled %>%
 </p>
 
 <p>
-  <strong>Broken corals:</strong>
-  <%= @restoration_activity_log_entry.broken_corals %>
+  <strong><%= t('restoration_activity_log_entry.attributes.bleached_corals') %>:</strong>
+  <%= @restoration_activity_log_entry.bleached_corals %>
 </p>
 
 <p>
-  <strong>Dead corals:</strong>
+  <strong><%= t('restoration_activity_log_entry.attributes.dead_corals') %>:</strong>
   <%= @restoration_activity_log_entry.dead_corals %>
 </p>
 
 <p>
-  <strong>Dive:</strong>
-  <%= @restoration_activity_log_entry.dive_id %>
-</p>
-
-<p>
-  <strong>Nursery table:</strong>
-  <%= @restoration_activity_log_entry.nursery_table_id %>
-</p>
-
-<p>
-  <strong>Images:</strong>
+  <strong><%= t('restoration_activity_log_entry.attributes.images') %>:</strong>
   <% @restoration_activity_log_entry.images.each do |image| %>
     <img src="<%= url_for(image) %>"  width="300"/>
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_restoration_activity_log_entry_path(@restoration_activity_log_entry) %> |
-<%= link_to 'Back', restoration_activity_log_entries_path %>
+<%= link_to t('defaults.actions.edit'), edit_restoration_activity_log_entry_path(@restoration_activity_log_entry) %> |
+<%= link_to t('defaults.actions.back'), restoration_activity_log_entries_path %>

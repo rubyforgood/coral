@@ -18,6 +18,7 @@ Lint/HandleExceptions:
     - rails/Rakefile
 
 Metrics/AbcSize:
+  Max: 20
   Exclude:
     - 'rails/db/migrate/**.active_storage.rb'
 

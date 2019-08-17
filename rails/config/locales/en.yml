@@ -30,14 +30,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  layouts:
-    application:
-      home: Home
-      nursery_tables: Nursery Tables
-      zones: Zones
-      restoration_activity_log: Restoration Activity Log
-      users: Users
-      logout: Logout
   home:
     index:
       welcome: "hello"
@@ -50,44 +42,45 @@ en:
       title: "On dive #%{dive_id}"
       finished_at_log_message: "Finished at %{finished_at}."
       finish_button: "Finish dive"
+      log_restoration: Log Restoration Activity
   nursery_tables:
-    helpers:
-      label:
-        item:
-          capacity: "Capacity"
-          zone: "Zone"
-          name: "Name"
-          nursery_table: "Nursery Tables"
     index:
       title: "Nursery Tables"
-      capacity: "Capacity"
-      zone: "Zone"
-      name: "Name"
-      show: Show
-      edit: Edit
-      destroy: Destroy
       new_nursery_table: "New Nursery Table"
     new:
       title: "New Nursery Table"
-      capacity: "Capacity"
-      zone: "Zone"
-      name: "Name"
-      show: "Show"
-      back: "Back"
     edit:
       title: "Editing Nursery Table"
-      capacity: "Capacity"
-      zone: "Zone"
-      name: "Name"
-      show: "Show"
-      back: "Back"
-    show:
-      capacity: "Capacity"
-      zone: "Zone"
-      name: "Name"
-      edit: "Edit"
-      back: "Back"
-  restoration_activity_log_entries:
+    form:
+      error_header: "prohibited this nursery table from being saved"
+  zones:
+    index:
+      title: "Zones"
+      new_zone: "New Zone"
     new:
+      title: "New Zone"
+    edit:
+      title: "Editing Zone"
+    form:
+      error_header: "prohibited this zone from being saved"
+  restoration_activity_log_entries:
+    index:
+      title: "Restoration Activity Log Entries"
+      percent_filled_message: "The table is %{percent_filled}% full."
+      corals_stats_message: "There are %{bleached_corals} fragmented corals and %{dead_corals} dead corals."
+      cleaned_message: "Was the nursery table cleaned? %{table_cleaned}"
+      new: "New Restoration Activity Log Entry"
+    edit:
+      title: "Edit Restoration Activity Log Entry"
+    new:
+      name: "Name"
+      title: "New Restoration Activity Log Entry"
       pending_entries: "<span id='pending-entry-count'>%{count}</span> log entries need to be synced to the server."
+    show:
+      title: "Restoration activity log entry"
+      for_table: "for nursery table"
+      logged_on_dive: "logged on dive"
+      at: "at"
+    form:
+      bleached_corals: 'Bleached Corals'
 

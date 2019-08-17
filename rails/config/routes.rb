@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :zones
   resources :dives, only: %i[new create show] do
     post :finish, on: :member
+    resources :restoration_activity_log_entries, only: %i[new create]
   end
 
   devise_scope :user do

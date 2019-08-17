@@ -1,0 +1,10 @@
+fr:
+  layouts:
+    application:
+      home: Page d'accueil
+      nursery_tables: Tables de pépinière
+      zones: Zones
+      restoration_activity_log: Journal d'activité de restauration
+      new_dive: Nouvelle plongée
+      users: Utilisateurs
+      logout: Déconnexion

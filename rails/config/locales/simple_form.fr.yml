@@ -18,11 +18,19 @@ fr:
         capacity: "Capacité"
         zone: Zone
         name: "Prénom"
+      zone:
+        name: "Prénom"
       user:
         new:
           email: 'E-mail pour vous connecter.'
         edit:
           email: 'E-mail.'
+      dive:
+        new:
+          i_have_been_responsible: "J'ai été responsable"
+          created_at: "Commencé"
+          finished_at: "Finie"
+          users: "Les Plongeurs"
     # hints:
     #   defaults:
     #     username: 'Nom d'utilisateur pour se connecter.'
