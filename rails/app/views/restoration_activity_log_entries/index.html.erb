@@ -5,7 +5,7 @@
     <div class="col-4">
       <div class="card text-center">
         <div class="card-body restoration-index">
-          <h5 class="card-title"><%= entry.nursery_table.name %></h5>
+          <h5 class="card-title"><%= entry.table_name %></h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= l(entry.created_at) %></h6>
           <p class="card-text">
             <%= t('.percent_filled_message', percent_filled: entry.percent_filled) %>
