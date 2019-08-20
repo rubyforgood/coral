@@ -12,6 +12,7 @@ require "action_view/railtie"
 require "action_cable/engine"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
+require "rack/rewrite"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -34,5 +35,19 @@ module Coral
 
     config.i18n.default_locale = :en
     config.i18n.available_locales = %i[en fr]
+
+    # Rewrite non-locale-specific URLs to use default locale before processing
+    locales_neg_regex = "#{
+      config.i18n.available_locales.map{ |l|
+        "\\/#{l.to_s}$|\\/#{l.to_s}\\/"
+      }.join("|")
+    }"
+    default_locale = config.i18n.default_locale.to_s
+    puts locales_neg_regex
+    config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
+      rewrite %r{^(https?\:\/\/(?:[\w\.]+)(?::\d+)?)?((?!#{locales_neg_regex})\/[\w\/\?,\-=%+]+)$},
+        "$1/#{default_locale}/$2"
+      rewrite '/', "/#{default_locale}/"
+    end
   end
 end

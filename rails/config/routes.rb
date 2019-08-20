@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  get "/*path", to: redirect("/#{I18n.default_locale}/%{path}"),
-    constraints: {
-      path: %r{(?!(#{I18n.available_locales.join('|')})).*}
-    }
-    # I18n.available_locales.map(&:to_s).includes?(path.split('/').first)
-
   scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
     root to: "home#index"
 

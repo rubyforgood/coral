@@ -151,6 +151,7 @@ GEM
       rack
     rack-proxy (0.6.5)
       rack
+    rack-rewrite (1.5.1)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.3)
@@ -306,6 +307,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   pry
   puma (~> 3.11)
+  rack-rewrite (~> 1.5.1)
   rails (~> 5.2.3)
   rails-i18n
   rspec-rails
@@ -329,4 +331,4 @@ RUBY VERSION
    ruby 2.6.3p62
 
 BUNDLED WITH
-   2.0.1
+   2.0.2

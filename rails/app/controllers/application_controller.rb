@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   around_action :set_locale
 
   protected
-  
+
   def set_locale(&action)
     locale = params[:locale].to_s.strip.to_sym
     if (!I18n.available_locales.include?(locale))
@@ -18,8 +18,6 @@ class ApplicationController < ActionController::Base
     # options.merge(locale: I18n.locale)
     { locale: I18n.locale == I18n.default_locale ? I18n.default_locale : I18n.locale }
   end
-
-  protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[name email password password_confirmation])
