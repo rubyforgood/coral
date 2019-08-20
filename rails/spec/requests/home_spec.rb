@@ -4,7 +4,6 @@ RSpec.describe "home", type: :request do
   include_context "logged in"
   it "can render the root page" do
     get "/"
-    puts response.inspect
     expect(response).to be_successful
 
     sign_out current_user
@@ -14,8 +13,6 @@ RSpec.describe "home", type: :request do
   end
   xit "can render a locale-specific root page" do
     locale_path_prefixes.each do |locale|
-      puts locale
-      puts "Getting #{locale}/"
       get "#{locale}/"
       expect(response).to be_successful
 

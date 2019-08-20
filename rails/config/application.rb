@@ -43,7 +43,7 @@ module Coral
       }.join("|")
     }"
     default_locale = config.i18n.default_locale.to_s
-    puts locales_neg_regex
+
     config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
       rewrite %r{^(https?\:\/\/(?:[\w\.]+)(?::\d+)?)?((?!#{locales_neg_regex})\/[\w\/\?,\-=%+]+)$},
         "$1/#{default_locale}/$2"
