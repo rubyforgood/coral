@@ -4,7 +4,7 @@ class NurseryTablesController < ApplicationController
   # GET /nursery_tables
   # GET /nursery_tables.json
   def index
-    @nursery_tables = NurseryTable.all
+    @nursery_tables = NurseryTable.all.includes(:zone)
   end
 
   # GET /nursery_tables/1
@@ -65,7 +65,7 @@ class NurseryTablesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_nursery_table
-    @nursery_table = NurseryTable.find(params[:id])
+    @nursery_table = NurseryTable.includes(:restoration_activity_log_entries).find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
