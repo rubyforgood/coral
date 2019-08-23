@@ -1,0 +1,10 @@
+  <li class="nav-item">
+    Language:&nbsp;
+    <% locale_links = I18n.available_locales.map do |locale|
+    <<-ENDHTML
+    #{link_to locale.to_s.upcase, request.parameters.merge(locale: locale.to_s), className: "nav-link", id: locale.to_s == request.parameters['locale'] ? "active-lang" : ""}
+
+    ENDHTML
+    end %>
+    <%= raw(locale_links.join('&nbsp;|&nbsp;')) %>
+  </li>
