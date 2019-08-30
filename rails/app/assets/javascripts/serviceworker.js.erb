@@ -115,22 +115,45 @@ function delayRequest(request) {
     .catch(console.error);
 }
 
+function serializeRequestAsWrite(request) {
+  return new Promise(function(resolve, reject) {
+    var headers = {};
+    for (var header of request.headers.entries()) {
+      headers[header[0]] = header[1];
+    }
+
+    var serialized = {
+      url: request.url,
+      headers: headers,
+      method: request.method,
+    };
+
+    if (request.method !== 'GET' && request.method !== 'HEAD') {
+      return request.clone().text().then(function(body) {
+        serialized.body = body;
+        return resolve(serialized);
+      });
+    } else {
+      return resolve(serialized);
+    }
+  });
+}
+
 function storeRequestAsWrite(db, request) {
   return new Promise((resolve, reject) => {
-    var requestKey = (new Date()).toISOString();
-    var storableRequest = {
-      url: request.url,
-    };
-    console.log('storable request', storableRequest);
-    var dbAdd = db.transaction(["writes"], 'readwrite')
-      .objectStore("writes")
-      .add({
-        key: requestKey,
-        request: storableRequest,
-        status: 'queued',
-      });
-    dbAdd.onsuccess = resolve;
-    dbAdd.onerror = reject;
+    serializeRequestAsWrite(request).then(function(storableRequest) {
+      console.log('storable request', storableRequest);
+      var requestKey = (new Date()).toISOString();
+      var dbAdd = db.transaction(["writes"], 'readwrite')
+        .objectStore("writes")
+        .add({
+          key: requestKey,
+          request: storableRequest,
+          status: 'queued',
+        });
+      dbAdd.onsuccess = resolve;
+      dbAdd.onerror = reject;
+    });
   });
 }
 
