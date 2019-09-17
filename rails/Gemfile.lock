@@ -76,6 +76,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
+    comfy_bootstrap_form (4.0.6)
+      rails (>= 5.0.0)
     concurrent-ruby (1.1.5)
     connection_pool (2.2.2)
     crass (1.0.4)
@@ -293,6 +295,7 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails
+  comfy_bootstrap_form
   devise (~> 4.6)
   devise-i18n
   dotenv-rails (~> 2.7)
