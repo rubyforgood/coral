@@ -8,5 +8,5 @@
 # to narrow themselves to entries in a particular zone.  this leaves things
 # open for more flexibility down the line.
 class Zone < ApplicationRecord
-  validates :name, uniqueness: true
+  validates :name, uniqueness: true, presence: true
 end
