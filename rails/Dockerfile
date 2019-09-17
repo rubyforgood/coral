@@ -6,7 +6,17 @@ RUN set -ex && \
     rm -rf /var/cache/apk
 
 # preinstall gems that take forever to load, because no-one has time for this
-RUN gem install bundler bcrypt ffi nokogiri pg sassc rb-inotify nio4r bootsnap byebug puma
+RUN gem install bundler \
+      bcrypt:3.1.13 \
+      ffi:1.11.1 \
+      nokogiri:1.10.4 \
+      pg:1.1.4 \
+      sassc:2.2.0 \
+      rb-inotify:0.10.0 \
+      nio4r:2.5.1 \
+      bootsnap:1.4.5 \
+      byebug:11.0.1 \
+      puma:3.12.1
 
 WORKDIR /srv/coral
 
