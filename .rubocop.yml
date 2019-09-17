@@ -7,6 +7,7 @@ AllCops:
     - 'rails/bin/**/*'
     - 'rails/node_modules/**/*'
     - 'rails/vendor/**/*'
+    - 'rails/db/schema.rb'
 
 Lint/AmbiguousRegexpLiteral:
   Exclude:
