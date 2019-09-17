@@ -1,22 +1,9 @@
-<%= form_with(model: zone, local: true) do |form| %>
-  <% if zone.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(zone.errors.count, t('.error')) %> <%= t('.error_header') %>:</h2>
+<%= bootstrap_form_with(model: zone, local: true,
+                        bootstrap: { layout: 'horizontal' }) do |form| %>
 
-      <ul>
-      <% zone.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+  <%= form.text_field :name %>
+
+  <%= form.submit class: 'btn-primary' do %>
+    <%= link_to "Cancel", zones_path, class: 'btn btn-link' %>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
