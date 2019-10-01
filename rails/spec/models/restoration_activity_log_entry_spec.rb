@@ -4,14 +4,16 @@ RSpec.describe RestorationActivityLogEntry do
   log = FactoryBot.build(:restoration_activity_log_entry)
   table = FactoryBot.build(:nursery_table)
 
-  def attach_jpeg_image(log, filename)
-    log.images.attach(
-      io: File.open(
-        Rails.root.join("spec", "factories", "images", filename)
-      ),
-      filename: filename,
-      content_type: "image/jpeg"
-    )
+  def attach_jpeg_images(log, filenames)
+    fixture_path = Rails.root.join("spec", "factories", "images")
+
+    attachments = filenames.map { |n| "#{n}.JPG" }.map do |name|
+      { io: File.open(fixture_path.join(name)),
+        filename: name,
+        content_type: "image/jpeg" }
+    end
+
+    log.images.attach(attachments)
   end
 
   describe "#images" do
@@ -20,14 +22,9 @@ RSpec.describe RestorationActivityLogEntry do
     end
 
     it "accepts multiple images" do
-      attach_jpeg_image(log, "GOPR3892.JPG")
-      attach_jpeg_image(log, "GOPR3893.JPG")
-      attach_jpeg_image(log, "GOPR3894.JPG")
-      attach_jpeg_image(log, "GOPR3895.JPG")
-      attach_jpeg_image(log, "GOPR3896.JPG")
-      attach_jpeg_image(log, "GOPR3900.JPG")
-      attach_jpeg_image(log, "GOPR3901.JPG")
-      attach_jpeg_image(log, "GOPR3902.JPG")
+      attach_jpeg_images(log, %w[GOPR3892 GOPR3893 GOPR3894 GOPR3895
+                                 GOPR3896 GOPR3900 GOPR3901 GOPR3902])
+
       expect(log.images.size).to eq 8
     end
   end
