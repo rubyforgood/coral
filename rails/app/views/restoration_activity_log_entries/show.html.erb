@@ -31,6 +31,11 @@
 </p>
 
 <p>
+  <strong><%= t('restoration_activity_log_entry.attributes.removed_for_planting') %>:</strong>
+  <%= @restoration_activity_log_entry.removed_for_planting %>
+</p>
+
+<p>
   <strong><%= t('restoration_activity_log_entry.attributes.images') %>:</strong>
   <% @restoration_activity_log_entry.images.each do |image| %>
     <img src="<%= url_for(image) %>"  width="300"/>
