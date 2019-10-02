@@ -41,9 +41,10 @@ To setup the app, you'll want to do the following:
   - HTTPS `git clone https://github.com/rubyforgood/coral.git`
 2. Change to the app directory: `cd coral`
 3. Be sure Postgres is [installed](https://www.postgresql.org/download/) (version 9.1+) and running, or that you've started it locally [in a container](https://hub.docker.com/_/postgres)
-4. If you're using `rvm` or `rbenv` (you should), ensure you've got the right ruby version selected:
-  - RVM: `rvm current` to check version, `rvm use` to change version
+4. If you're using `chruby`, `rbenv`, or `rvm` (you should), ensure you've got the right ruby version selected:
+  - chruby: `ruby --version` to check the current version. If you have `chruby/auto.sh` loaded, chruby will automatically use what's in `.ruby-version`
   - rbenv: `rbenv version` to check, rbenv should automatically use what's in `.ruby-version`
+  - RVM: `rvm current` to check version, `rvm use` to change version
 5. Install the app bundle: `bundle install`
 6. [Install yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable) if you don't have it already.
 7. Install the javascript dependencies: `yarn install --check-files`
