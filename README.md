@@ -22,7 +22,7 @@ We will be doing this by building a Ruby on Rails app with the ability to review
 
 We would love to have your help!
 
-To get started, check out the [CONTRIBUTING](CONTRIBUTING.md) doc for technical and process instructions, and be sure to read our [Code of Conduct](code-of-conduct.md).
+To get started, check out the [CONTRIBUTING](CONTRIBUTING.md) doc for technical and process instructions, and be sure to read our [Code of Conduct](code-of-conduct.md).  Read [DESIGN](DESIGN.md) for a description of the overall project architecture and patterns.
 
 ## License
 
