@@ -8,7 +8,7 @@ en:
     attributes:
       restoration_activity_log_entry:
         cleaned: 'Cleaned'
-        percent_filled: '% Filled'
+        corals_added: 'Corals Added'
         dive: 'Dive'
         bleached_corals: 'Bleached Corals'
         dead_corals: 'Dead Corals'
@@ -17,7 +17,7 @@ en:
   restoration_activity_log_entry:
     attributes:
       cleaned: 'Cleaned'
-      percent_filled: '% Filled'
+      corals_added: 'Corals Added'
       dive: 'Dive'
       bleached_corals: 'Bleached Corals'
       dead_corals: 'Dead Corals'
@@ -27,7 +27,7 @@ en:
     label:
       restoration_activity_log_entry:
         cleaned: 'Cleaned'
-        percent_filled: '% Filled'
+        corals_added: 'Corals Added'
         dive: 'Dive'
         bleached_corals: 'Bleached Corals'
         dead_corals: 'Dead Corals'

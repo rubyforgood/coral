@@ -66,7 +66,7 @@ fr:
   restoration_activity_log_entries:
     index:
       title: "Entrées du journal des activités de restauration"
-      percent_filled_message: "La table est remplie à %{percent_filled}%."
+      corals_added_message: "%{corals_added}% coraux ont été ajoutés."
       corals_stats_message: "Il y a %{bleached_corals} coraux fragmentés et %{dead_corals} coraux morts."
       cleaned_message: "La table de la pépinière a-t-elle été nettoyée? %{table_cleaned}"
       new: "Nouvelle Entrée du journal des activité de restauration"

@@ -8,7 +8,7 @@ fr:
     attributes:
       restoration_activity_log_entry:
         cleaned: 'Nettoyée'
-        percent_filled: '% rempli'
+        corals_added: 'Coraux Ajoutés'
         dive: 'Plongée'
         bleached_corals: 'Coraux blanchis'
         dead_corals: 'Coraux morts'
@@ -17,7 +17,7 @@ fr:
   restoration_activity_log_entry:
     attributes:
       cleaned: 'Nettoyée'
-      percent_filled: '% rempli'
+      corals_added: 'Coraux Ajoutés'
       dive: 'Plongée'
       bleached_corals: 'Coraux blanchis'
       dead_corals: 'Coraux morts'
@@ -27,7 +27,7 @@ fr:
     label:
       restoration_activity_log_entry:
         cleaned: 'Nettoyée'
-        percent_filled: '% rempli'
+        corals_added: 'Coraux Ajoutés'
         dive: 'Plongée'
         bleached_corals: 'Coraux blanchis'
         dead_corals: 'Coraux morts'
