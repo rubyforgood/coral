@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_17_010114) do
+ActiveRecord::Schema.define(version: 2019_10_03_021702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2019_09_17_010114) do
 
   create_table "restoration_activity_log_entries", force: :cascade do |t|
     t.boolean "cleaned"
-    t.integer "percent_filled"
+    t.integer "corals_added"
     t.integer "bleached_corals"
     t.integer "dead_corals"
     t.integer "dive_id"
