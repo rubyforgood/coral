@@ -24,7 +24,7 @@
       <tr>
         <th scope="col">Date Performed</th>
         <th scope="col">Cleaned?</th>
-        <th scope="col">Percent full</th>
+        <th scope="col">Corals Added</th>
         <th scope="col">Bleached</th>
         <th scope="col">Dead</th>
       </tr>
@@ -38,7 +38,7 @@
               <% else %>
             <td><%= fa_icon "times-circle", class: "text-danger" %></td>
               <% end %>
-            <td><%= entry.percent_filled %>% </td>
+            <td><%= entry.corals_added %>% </td>
             <td><%= entry.bleached_corals %></td>
             <td><%= entry.dead_corals %></td>
         </tr>

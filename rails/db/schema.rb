@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2019_10_04_160138) do
 
   create_table "restoration_activity_log_entries", force: :cascade do |t|
     t.boolean "cleaned"
-    t.integer "percent_filled"
+    t.integer "corals_added"
     t.integer "bleached_corals"
     t.integer "dead_corals"
     t.integer "dive_id"
