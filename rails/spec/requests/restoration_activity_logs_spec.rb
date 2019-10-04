@@ -3,6 +3,20 @@ require "support/authentication"
 
 RSpec.describe "Restoration Activity Log", type: :request do
   include_context "logged in"
+
+  describe "GET index" do
+    let!(:zone) { FactoryBot.create(:zone) }
+    let!(:nursery_table) { FactoryBot.create(:nursery_table, zone_id: zone.id) }
+    let!(:log_entry) { FactoryBot.create(:restoration_activity_log_entry, nursery_table_id: nursery_table.id) }
+
+    it "renders only undiscarded entries" do
+      RestorationActivityLogEntry.first.discard!
+      get restoration_activity_log_entries_path
+      expect(response).to be_successful
+      expect(assigns(:restoration_activity_log_entries)).to eq([])
+    end
+  end
+
   describe "GET show" do
     let!(:zone) { FactoryBot.create(:zone) }
     let!(:nursery_table) { FactoryBot.create(:nursery_table, zone_id: zone.id) }

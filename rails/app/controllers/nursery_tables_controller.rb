@@ -4,7 +4,7 @@ class NurseryTablesController < ApplicationController
   # GET /nursery_tables
   # GET /nursery_tables.json
   def index
-    @nursery_tables = NurseryTable.all.includes(:zone)
+    @nursery_tables = NurseryTable.kept.includes(:zone)
   end
 
   # GET /nursery_tables/1

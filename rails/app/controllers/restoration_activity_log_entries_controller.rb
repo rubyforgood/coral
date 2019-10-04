@@ -4,7 +4,7 @@ class RestorationActivityLogEntriesController < ApplicationController
   # GET /restoration_activity_log_entries
   # GET /restoration_activity_log_entries.json
   def index
-    @restoration_activity_log_entries = RestorationActivityLogEntry.all
+    @restoration_activity_log_entries = RestorationActivityLogEntry.kept
   end
 
   # GET /restoration_activity_log_entries/1

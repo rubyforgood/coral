@@ -86,4 +86,5 @@ gem "rails-i18n"
 gem "serviceworker-rails", "~> 0.6"
 
 gem "faker", "~> 1.9"
+gem "rails-controller-testing"
 gem "discard", "~> 1.0"

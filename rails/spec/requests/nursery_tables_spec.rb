@@ -6,6 +6,18 @@ RSpec.describe "Nursery Tables", type: :request do
     sign_in(current_user)
   end
 
+  describe "GET index" do
+    let!(:nursery_table) { FactoryBot.create(:nursery_table, zone: zone) }
+    let!(:zone) { FactoryBot.create(:zone) }
+
+    it "renders only undiscarded nursery tables" do
+      NurseryTable.first.discard!
+      get nursery_tables_path
+      expect(response).to be_successful
+      expect(assigns(:nursery_tables)).to eq([])
+    end
+  end
+
   describe "GET and POST requests do" do
     let!(:nursery_table) { FactoryBot.create(:nursery_table, zone: zone) }
     let!(:zone) { FactoryBot.create(:zone) }
