@@ -111,6 +111,8 @@ GEM
     devise-i18n (1.8.2)
       devise (>= 4.6)
     diff-lcs (1.3)
+    discard (1.1.0)
+      activerecord (>= 4.2, < 7)
     dotenv (2.7.5)
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
@@ -317,6 +319,7 @@ DEPENDENCIES
   coffee-rails
   devise (~> 4.6)
   devise-i18n
+  discard (~> 1.0)
   dotenv-rails (~> 2.7)
   factory_bot_rails
   faker (~> 1.9)
@@ -350,4 +353,4 @@ RUBY VERSION
    ruby 2.6.3p62
 
 BUNDLED WITH
-   2.0.1
+   2.0.2
