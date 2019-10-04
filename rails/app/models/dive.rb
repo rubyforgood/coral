@@ -2,7 +2,7 @@
 #
 # This is mostly a bookkeeping class, as an effort to attempt to find start
 # and end times.
-class Dive < ApplicationRecord
+class Dive < DiscardableRecord
   has_many :user_dives
   has_many :users, through: :user_dives
 

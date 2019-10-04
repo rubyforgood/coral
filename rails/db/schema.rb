@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_17_010114) do
+ActiveRecord::Schema.define(version: 2019_10_04_160138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 2019_09_17_010114) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "finished_at"
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_dives_on_discarded_at"
   end
 
   create_table "nursery_tables", force: :cascade do |t|
@@ -50,6 +52,8 @@ ActiveRecord::Schema.define(version: 2019_09_17_010114) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_nursery_tables_on_discarded_at"
     t.index ["zone_id"], name: "index_nursery_tables_on_zone_id"
   end
 
@@ -62,6 +66,8 @@ ActiveRecord::Schema.define(version: 2019_09_17_010114) do
     t.integer "nursery_table_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_restoration_activity_log_entries_on_discarded_at"
   end
 
   create_table "user_dives", force: :cascade do |t|
@@ -69,6 +75,8 @@ ActiveRecord::Schema.define(version: 2019_09_17_010114) do
     t.integer "dive_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_user_dives_on_discarded_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -85,6 +93,8 @@ ActiveRecord::Schema.define(version: 2019_09_17_010114) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_users_on_discarded_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -93,6 +103,8 @@ ActiveRecord::Schema.define(version: 2019_09_17_010114) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_zones_on_discarded_at"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

@@ -2,7 +2,7 @@
 #
 # NB: Not actually used anywhere in the application; I'm not entirely sure
 # this is necessary
-class UserDive < ApplicationRecord
+class UserDive < DiscardableRecord
   belongs_to :user
   belongs_to :dive
 end

@@ -4,7 +4,7 @@
 # over time, and should _not_ be written to or updated after the dive is
 # completed.  The one exception to this is the process of adding images to
 # the log after the dive has completed.
-class RestorationActivityLogEntry < ApplicationRecord
+class RestorationActivityLogEntry < DiscardableRecord
   belongs_to :nursery_table, optional: true
   belongs_to :dive, optional: true
   has_many_attached :images

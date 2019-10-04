@@ -7,6 +7,6 @@
 # better to use the zone as a value object key, and ask other collections
 # to narrow themselves to entries in a particular zone.  this leaves things
 # open for more flexibility down the line.
-class Zone < ApplicationRecord
+class Zone < DiscardableRecord
   validates :name, uniqueness: true
 end
