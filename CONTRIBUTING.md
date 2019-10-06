@@ -31,6 +31,9 @@ Some things that will increase the chance that your pull request is accepted:
 * Use Rails idioms and helpers
 * Include tests that fail without your code, and pass with it
 * Update the documentation, the surrounding one, examples elsewhere, guides, whatever is affected by your contribution
+* Each pull reuqest should represent a single, coherent idea.
+* We are attempting to keep dependencies and magic to a minimum.  If you want to introduce a new depedency, please raise for discussion either on GitHub or in our slack channel.
+* Please do not make configuration changes as a part of an unrelated PR.  If you feel that some configuration has to change, file a request specifically for that.
 
 ## Getting started
 
