@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2019_10_03_021702) do
     t.integer "nursery_table_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "removed_for_planting"
   end
 
   create_table "user_dives", force: :cascade do |t|

@@ -73,7 +73,9 @@ class RestorationActivityLogEntriesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def restoration_activity_log_entry_params
-    params.require(:restoration_activity_log_entry).permit(:cleaned, :corals_added, :bleached_corals, :dead_corals, :dive_id, :nursery_table_id, images: [])
+    params.require(:restoration_activity_log_entry).permit(
+      :cleaned, :corals_added, :bleached_corals, :dead_corals, :removed_for_planting, :dive_id, :nursery_table_id, images: []
+    )
   end
 
   def redirect_url(entry)
