@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 2019_10_04_160138) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "discarded_at"
+    t.integer "removed_for_planting"
     t.index ["discarded_at"], name: "index_restoration_activity_log_entries_on_discarded_at"
   end
 
