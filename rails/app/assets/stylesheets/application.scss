@@ -168,6 +168,9 @@ $highlight-text: #C06D19;
 
   // Buttons //
 
+  .btn {
+    border: 1px solid;
+}
   a.btn {
     background-color: $dark-accent;
     color: $light-shade;
