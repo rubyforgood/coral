@@ -3,6 +3,13 @@ require "support/authentication"
 
 RSpec.describe "Restoration Activity Log", type: :request do
   include_context "logged in"
+
+  describe "GET index" do
+    it "renders" do
+      get "/restoration_activity_log_entries"
+    end
+  end
+
   describe "GET show" do
     let!(:zone) { FactoryBot.create(:zone) }
     let!(:nursery_table) { FactoryBot.create(:nursery_table, zone_id: zone.id) }
