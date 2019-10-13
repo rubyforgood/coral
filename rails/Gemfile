@@ -70,6 +70,8 @@ group :test do
   gem "selenium-webdriver"
   gem "teaspoon", github: "jejacks0n/teaspoon", branch: "master"
   gem "teaspoon-mocha"
+
+  gem "simplecov"
 end
 
 gem "devise", "~> 4.6"
