@@ -7,6 +7,8 @@ RSpec.describe "Restoration Activity Log", type: :request do
   describe "GET index" do
     it "renders" do
       get "/restoration_activity_log_entries"
+
+      expect(response.status).to eq 200
     end
   end
 
