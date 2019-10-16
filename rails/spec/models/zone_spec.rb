@@ -1,10 +1,10 @@
 require "rails_helper"
 
 RSpec.describe Zone, type: :model do
-  let(:zone) { Zone.new(name: "A") }
+  let(:zone) { create :zone, name: "Fake name" }
 
-  it "is has valid attributes" do
+  it "has a valid factory", :aggregate_failures do
     expect(zone).to be_valid
-    expect(zone).to have_attributes(name: "A")
+    expect(zone).to have_attributes(name: "Fake name")
   end
 end
