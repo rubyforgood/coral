@@ -1,6 +1,7 @@
 <h1><%= t('.title') %></h1>
 
 <p class="alert"><%=t('.pending_entries', count: "-").html_safe %></p>
+<ul id='pending-entry-preview' class="list-group"></ul>
 
 <%= render 'form', restoration_activity_log_entry: @restoration_activity_log_entry %>
 
@@ -42,9 +43,56 @@ function getAllWrites(db) {
   })
 }
 
+function previewWrite(write) {
+  var body = (write.request || {})['body'];
+  var headers = (write.request || {})['headers'];
+  var content_type = (headers || {})['content-type'];
+  var data = {};
+  var values = [];
+
+  // parse the POST form body
+  if (content_type === 'application/x-www-form-urlencoded') {
+    var pairs = body.split('&');
+    for (var i = 0; i < pairs.length; i += 1) {
+      var pair = pairs[i].split('=');
+      var key = decodeURIComponent(pair[0]);
+      var val = decodeURIComponent(pair[1]);
+
+      // remove brackets from param names, e.g., zone[id] => id
+      if (/^[^\[]+\[[^\[\]]+\]$/.test(key)) {
+        key = key.replace(/[^\[]+\[/, '');
+        key = key.replace(/\]/, '');
+      }
+
+      data[key] = val;
+    }
+
+    // omit params that are not part of the form
+    delete data['utf8'];
+    delete data['authenticity_token'];
+    delete data['commit'];
+    delete data['status'];
+  } else {
+    data = write;
+  }
+
+  console.log('data', data);
+  for (key in data) {
+    values.push('<span><b>' + key + '</b> ' + data[key] + '</span>');
+  }
+
+  return(
+    '<li class="list-group-item">' + write.key + ' (' + write.status + ') ' + values.join(', ') + '</li>'
+  );
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initWriteDatabase().then(getAllWrites).then(writes => {
     document.getElementById('pending-entry-count').innerHTML = writes.length;
+    var preview = document.getElementById('pending-entry-preview');
+    for (var i = 0; i < writes.length; i += 1) {
+      preview.innerHTML += previewWrite(writes[i]);
+    }
   });
 });
 </script>
