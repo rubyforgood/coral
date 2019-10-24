@@ -3,6 +3,15 @@ require "support/authentication"
 
 RSpec.describe "Restoration Activity Log", type: :request do
   include_context "logged in"
+
+  describe "GET index" do
+    it "renders" do
+      get "/restoration_activity_log_entries"
+
+      expect(response.status).to eq 200
+    end
+  end
+
   describe "GET show" do
     let!(:zone) { FactoryBot.create(:zone) }
     let!(:nursery_table) { FactoryBot.create(:nursery_table, zone_id: zone.id) }
@@ -101,6 +110,39 @@ RSpec.describe "Restoration Activity Log", type: :request do
 
         it "adds images" do
           expect { subject.call }.to change { log_entry.images.count }.by(2)
+        end
+      end
+    end
+
+    describe "DELETE" do
+      context "given images" do
+        subject do
+          lambda {
+            delete "/restoration_activity_log_entries/#{log_entry.id}", params: {
+              restoration_activity_log_entry: {
+                images: images,
+                nursery_table_id: nursery_table.id
+              }
+            }
+          }
+        end
+
+        let(:log_entry) { FactoryBot.create(:restoration_activity_log_entry) }
+
+        let(:images) do
+          [
+            fixture_file_upload(Rails.root.join("spec", "factories", "images", "GOPR3892.JPG")),
+            fixture_file_upload(Rails.root.join("spec", "factories", "images", "GOPR3893.JPG"))
+          ]
+        end
+
+        it "redirects" do
+          subject.call
+          expect(response).to be_redirect
+
+          follow_redirect!
+          expect(response).to be_successful
+          expect(response.body).to include("Restoration activity log entry was successfully destroyed.")
         end
       end
     end
