@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :zone do
-    name { "zone A" }
+    name { FFaker::Address.city }
   end
 end
