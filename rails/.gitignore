@@ -7,6 +7,10 @@
 # Ignore bundler config.
 .bundle
 
+# Ignore .dotenv config
+.env*
+!.env.example
+
 # Ignore floo files
 .floo
 .flooignore
@@ -25,7 +29,6 @@ db/*.sqlite3-journal
 # Ignore all logfiles and tempfiles.
 log/*.log
 tmp
-.env
 .byebug_history
 
 # Ignore locally installed bundled gems
@@ -41,28 +44,15 @@ public/assets
 .vscode
 **/*.code-workspace
 
+# Misc.
 .rails_routes*
 .rake_tasks~
-.DS_Store
 .ruby-gemset
-*.pdf
 spec/example_failures.txt
 
-# Ignore Docker stuff (see rubyforgood/diaper issues diaper#503, diaper#603)
+# Ignore Docker, Webpack, and Yarn files
 # Dockerfile
 # docker-compose.yml
-# /public/packs
-# /public/packs-test
-# /node_modules
-# yarn-debug.log*
-# .yarn-integrity
-
-# Ignore master key for decrypting credentials and more.
-config/master.key
-
-# Ignore SimpleCov assets
-coverage
-
 public/packs
 public/packs-test
 node_modules
@@ -70,11 +60,12 @@ yarn-error.log
 yarn-debug.log*
 .yarn-integrity
 
-.env*
+# Ignore master key for decrypting credentials and more.
+config/master.key
 
-/public/packs
-/public/packs-test
-/node_modules
-/yarn-error.log
-yarn-debug.log*
-.yarn-integrity
+# Ignore SimpleCov assets
+coverage
+
+# Computer system files
+.DS_Store
+*.pdf

@@ -1,4 +1,4 @@
-## Contributing
+# Contributing
 
 We ♥ contributors! By participating in this project, you agree to abide by the Ruby for Good [code of conduct].
 
@@ -11,17 +11,11 @@ Here are the basic steps to submit a pull request. Make sure that you're working
 [open issue]: https://github.com/rubyforgood/coral/issues
 
 1. Claim an issue on [our issue tracker][open issue] by assigning it to yourself (core team member) or commenting. If the issue doesn't exist yet, open it.
-
 2. Fork the repo.
-
-3. Run the tests. We only take pull requests with passing tests, and it's great to know that you have a clean slate: `bundle exec rake`
-
+3. Run the tests. We only take pull requests with passing tests, and it's great to know that you have a clean slate. Do this by checking out the app's directory and typing `bundle exec rake` in the terminal.
 4. Add a test for your change. If you are adding functionality or fixing a  bug, you should add a test!
-
 5. Make the test pass.
-
-6. Push to your fork and submit a pull request. Include the issue number (ex. `Resolves #1`) in the PR description.
-
+6. Push to your fork and submit a pull request. Include the issue number (ex. `Resolves Issue #1`) in the PR description.
 7. For any changes, please create a feature branch and open a PR for it when you feel it's ready to merge. Even if there's no real disagreement about a PR, at least one other person on the team needs to look over a PR before merging. The purpose of this review requirement is to ensure shared knowledge of the app and its changes and to take advantage of the benefits of working together changes without any single person being a bottleneck to making progress.
 
 At this point you're waiting on us–we'll try to respond to your PR quickly. We may suggest some changes or improvements or alternatives.
@@ -40,21 +34,22 @@ Some things that will increase the chance that your pull request is accepted:
 To setup the app, you'll want to do the following:
 
 1. Clone the repo:
-  - SSH: `git clone git@github.com:rubyforgood/coral.git`
-  - HTTPS `git clone https://github.com/rubyforgood/coral.git`
-2. Change to the app directory: `cd coral`
+    * SSH: `git clone git@github.com:rubyforgood/coral.git`
+    * HTTPS `git clone https://github.com/rubyforgood/coral.git`
+2. Change to the app directory: `cd coral/rails`
 3. Be sure Postgres is [installed](https://www.postgresql.org/download/) (version 9.1+) and running, or that you've started it locally [in a container](https://hub.docker.com/_/postgres)
 4. If you're using `chruby`, `rbenv`, or `rvm` (you should), ensure you've got the right ruby version selected:
-  - chruby: `ruby --version` to check the current version. If you have `chruby/auto.sh` loaded, chruby will automatically use what's in `.ruby-version`
-  - rbenv: `rbenv version` to check, rbenv should automatically use what's in `.ruby-version`
-  - RVM: `rvm current` to check version, `rvm use` to change version
+    * chruby: `ruby --version` to check the current version. If you have `chruby/auto.sh` loaded, chruby will automatically use what's in `.ruby-version`
+    * rbenv: `rbenv version` to check, rbenv should automatically use what's in `.ruby-version`
+    * RVM: `rvm current` to check version, `rvm use` to change version
 5. Install the app bundle: `bundle install`
-6. [Install yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable) if you don't have it already.
+6. [Install yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable) if you don't have it already
 7. Install the javascript dependencies: `yarn install --check-files`
-8. Setup the database: `bundle exec rake db:setup`
-9. Run the tests: `bundle exec rails spec`
-10. Run the app locally: `bundle exec rails server`
-11. View the running app in the browser at [http://localhost:3000](http://localhost:3000)
+8. Create a `.env` file in `coral/rails` and copy the information from `coral/rails/.env.example`, creating your own Postgres username and password
+9. Setup the database: `bundle exec rake db:setup`
+10. Run the tests: `bundle exec rails spec`
+11. Run the app locally: `bundle exec rails server`
+12. View the running app in the browser at [http://localhost:3000](http://localhost:3000)
 
 To run the app and related servers in docker, do the following:
 

@@ -9,6 +9,7 @@
 
 # Ignore .dotenv config
 .env*
+!rails/.env.example
 .docker-env
 
 # Ignore Rubymine
