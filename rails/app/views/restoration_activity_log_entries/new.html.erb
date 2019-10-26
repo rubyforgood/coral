@@ -7,6 +7,25 @@
 
 <%= link_to t('defaults.actions.back'), restoration_activity_log_entries_path %>
 
+<template id="pending-entry-preview-item-template">
+    <li class="list-group-item">
+        <slot name="id">MISSINGID</slot>
+        (<slot name="status">MISSINGSTATUS</slot>)
+
+        <%# should be the same list of visible inputs as in _form.html.erb %>
+        <% [:nursery_table_id,
+            :cleaned,
+            :corals_added,
+            :bleached_corals,
+            :removed_for_planting].each do |input| %>
+        <span>
+            <b><%= t(".restoration_activity_log_entries.form.#{input}") %></b>
+            <slot name="<%= input %>">?</slot>
+        </span>
+        <% end %>
+    </li>
+</template>
+
 <script>
 function initWriteDatabase() {
   return new Promise((resolve, reject) => {
@@ -48,7 +67,6 @@ function previewWrite(write) {
   var headers = (write.request || {})['headers'];
   var content_type = (headers || {})['content-type'];
   var data = {};
-  var values = [];
 
   // parse the POST form body
   if (content_type === 'application/x-www-form-urlencoded') {
@@ -76,15 +94,36 @@ function previewWrite(write) {
     data = write;
   }
 
-  console.log('data', data);
+  var dataSlots = '';
   for (key in data) {
-    values.push('<span><b>' + key + '</b> ' + data[key] + '</span>');
+    if (data[key]) {
+      dataSlots += `<span slot="${key}">${data[key]}</span>`;
+    }
   }
 
-  return(
-    '<li class="list-group-item">' + write.key + ' (' + write.status + ') ' + values.join(', ') + '</li>'
-  );
+  var component = `
+  <pending-entry-preview-item>
+      <span slot="id">${write.key}</span>
+      <span slot="status">${write.status}</span>
+      ${dataSlots}
+  </pending-entry-preview-item>
+  `;
+  return(component);
 }
+
+customElements.define('pending-entry-preview-item',
+  class extends HTMLElement {
+    constructor() {
+      super();
+      var template = document
+        .getElementById('pending-entry-preview-item-template')
+        .content;
+      const shadowRoot = this
+        .attachShadow({mode: 'open'})
+        .appendChild(template.cloneNode(true));
+    }
+  }
+);
 
 document.addEventListener('DOMContentLoaded', () => {
   initWriteDatabase().then(getAllWrites).then(writes => {

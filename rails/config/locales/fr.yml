@@ -84,5 +84,10 @@ fr:
       logged_on_dive: "enregistré en plongée"
       at: "à"
     form:
-      total_fragments: "Fragments totaux"
       bleached_corals: 'Coraux blanchis'
+      cleaned: 'Nettoyé'
+      corals_added: 'Coraux ajoutés'
+      dead_corals: 'Coraux morts'
+      id: 'ID'
+      nursery_table_id: 'Table de pépinière'
+      removed_for_planting: 'Enlevé pour la plantation'
