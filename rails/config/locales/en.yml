@@ -83,4 +83,9 @@ en:
       at: "at"
     form:
       bleached_corals: 'Bleached Corals'
-
+      cleaned: 'Cleaned'
+      corals_added: 'Corals Added'
+      dead_corals: 'Dead Corals'
+      id: 'ID'
+      nursery_table_id: 'Nursery Table'
+      removed_for_planting: 'Removed for Planting'

@@ -1,10 +1,30 @@
 <h1><%= t('.title') %></h1>
 
 <p class="alert"><%=t('.pending_entries', count: "-").html_safe %></p>
+<ul id='pending-entry-preview' class="list-group"></ul>
 
 <%= render 'form', restoration_activity_log_entry: @restoration_activity_log_entry %>
 
 <%= link_to t('defaults.actions.back'), restoration_activity_log_entries_path %>
+
+<template id="pending-entry-preview-item-template">
+    <li class="list-group-item">
+        <slot name="id">MISSINGID</slot>
+        (<slot name="status">MISSINGSTATUS</slot>)
+
+        <%# should be the same list of visible inputs as in _form.html.erb %>
+        <% [:nursery_table_id,
+            :cleaned,
+            :corals_added,
+            :bleached_corals,
+            :removed_for_planting].each do |input| %>
+        <span>
+            <b><%= t(".restoration_activity_log_entries.form.#{input}") %></b>
+            <slot name="<%= input %>">?</slot>
+        </span>
+        <% end %>
+    </li>
+</template>
 
 <script>
 function initWriteDatabase() {
@@ -42,9 +62,76 @@ function getAllWrites(db) {
   })
 }
 
+function previewWrite(write) {
+  var body = (write.request || {})['body'];
+  var headers = (write.request || {})['headers'];
+  var content_type = (headers || {})['content-type'];
+  var data = {};
+
+  // parse the POST form body
+  if (content_type === 'application/x-www-form-urlencoded') {
+    var pairs = body.split('&');
+    for (var i = 0; i < pairs.length; i += 1) {
+      var pair = pairs[i].split('=');
+      var key = decodeURIComponent(pair[0]);
+      var val = decodeURIComponent(pair[1]);
+
+      // remove brackets from param names, e.g., zone[id] => id
+      if (/^[^\[]+\[[^\[\]]+\]$/.test(key)) {
+        key = key.replace(/[^\[]+\[/, '');
+        key = key.replace(/\]/, '');
+      }
+
+      data[key] = val;
+    }
+
+    // omit params that are not part of the form
+    delete data['utf8'];
+    delete data['authenticity_token'];
+    delete data['commit'];
+    delete data['status'];
+  } else {
+    data = write;
+  }
+
+  var dataSlots = '';
+  for (key in data) {
+    if (data[key]) {
+      dataSlots += `<span slot="${key}">${data[key]}</span>`;
+    }
+  }
+
+  var component = `
+  <pending-entry-preview-item>
+      <span slot="id">${write.key}</span>
+      <span slot="status">${write.status}</span>
+      ${dataSlots}
+  </pending-entry-preview-item>
+  `;
+  return(component);
+}
+
+customElements.define('pending-entry-preview-item',
+  class extends HTMLElement {
+    constructor() {
+      super();
+      var template = document
+        .getElementById('pending-entry-preview-item-template')
+        .content;
+      const shadowRoot = this
+        .attachShadow({mode: 'open'})
+        .appendChild(template.cloneNode(true));
+    }
+  }
+);
+
 document.addEventListener('DOMContentLoaded', () => {
   initWriteDatabase().then(getAllWrites).then(writes => {
     document.getElementById('pending-entry-count').innerHTML = writes.length;
+    var preview = document.getElementById('pending-entry-preview');
+    for (var i = 0; i < writes.length; i += 1) {
+      preview.innerHTML += previewWrite(writes[i]);
+    }
   });
 });
 </script>
